@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 if [ -e "$HOME"/.vim/autoload/plug.vim ]; then
   vim -E -s +PlugUpgrade +qa
@@ -22,3 +22,12 @@ rename the file to \`zprofile':
 (called from ${dir}/post-up:${LINENO})
 MSG
 fi
+
+# Copy example files
+for file in "$HOME"/.dotfiles/*.example; do
+  basename=`basename $file`
+  src=$file
+  dest="$HOME/.${basename%.*}"
+
+  cp -v -n $src $dest
+done

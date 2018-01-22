@@ -1,1 +1,1 @@
-EXCLUDES="assets Brewfile install.sh"
+EXCLUDES="assets Brewfile install.sh *.example"
