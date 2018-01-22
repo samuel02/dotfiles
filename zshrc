@@ -32,3 +32,5 @@ do
 done
 
 unset config_files
+
+source $DOTFILES/zsh/path.zsh
