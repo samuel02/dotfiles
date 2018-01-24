@@ -22,3 +22,25 @@ pip2 install gcalcli
 # Setup dotfiles
 echo "› setup dotfiles"
 RCRC=~/.dotfiles/rcrc rcup
+
+# Copy example files
+echo "› add local config files"
+for file in "$HOME"/.dotfiles/*.example; do
+  basename=`basename $file`
+  src=$file
+  dest="$HOME/.${basename%.*}"
+
+  cp -v -n $src $dest
+done
+
+# Install vim plugins
+echo "› install vim-plug"
+if [ -e "$HOME"/.vim/autoload/plug.vim ]; then
+  vim -E -s +PlugUpgrade +qa
+else
+  curl -fLo "$HOME"/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+fi
+
+echo "› install vim plugins"
+vim -u "$HOME"/.vimrc.bundles +PlugUpdate +PlugClean! +qa
