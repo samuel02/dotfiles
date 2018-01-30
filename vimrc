@@ -7,14 +7,8 @@ set nobomb
 "" Fix backspace indent
 set backspace=indent,eol,start
 
-"" Tabs. May be overriten by autocmd rules
-set tabstop=4
-set softtabstop=0
-set shiftwidth=2
-set expandtab
-
 "" Enable hidden buffers
-set hidden
+set nohidden
 
 "" Searching
 set hlsearch
@@ -26,11 +20,25 @@ set smartcase
 set nobackup
 set noswapfile
 
-set fileformats=unix,dos,mac
+"" Show commands
 set showcmd
 
 "" Copy/Paste/Cut
 set clipboard=unnamed,unnamedplus
+
+"" Splitting
+set splitright
+
+"" Round indent to multiple of 'shiftwidth'
+set shiftround
+
+"" Automatically reload and write file
+set autoread
+set autowrite
+
+"" Wildmode
+set wildmode=list:longest,list:full
+set wildignore+=*.o,*.obj,.git,*.rbc,*.pyc,__pycache__
 
 "" Load plugins
 if filereadable(expand("~/.vimrc.bundles"))
@@ -71,7 +79,7 @@ noremap <leader>q :bp<CR>
 noremap <leader>w :bn<CR>
 
 "" Close buffer
-noremap <leader>c :Bclose<CR>
+noremap <leader>d :bd<CR>
 
 "" Clean search (highlight)
 nnoremap <silent> <leader><space> :noh<cr>
