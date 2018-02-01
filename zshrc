@@ -11,6 +11,11 @@ then
   source ~/.localrc
 fi
 
+# load custom executable functions
+for function in $DOTFILES/zsh/functions/*; do
+  source $function
+done
+
 # all of our zsh files
 typeset -U config_files
 config_files=($DOTFILES/zsh/*.zsh)
