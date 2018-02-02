@@ -11,6 +11,10 @@ fi
 echo "› brew update"
 brew update
 
+# Install mas-cli to handle Mac App Store apps
+echo "› brew install mas"
+brew install mas
+
 # Install all formulas in Brewfile
 echo "› brew bundle"
 brew bundle

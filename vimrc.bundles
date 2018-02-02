@@ -30,6 +30,7 @@ Plug 'tpope/vim-surround'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-scripts/gitignore'
+Plug 'wincent/terminus'
 
 if g:has_async
   Plug 'w0rp/ale'

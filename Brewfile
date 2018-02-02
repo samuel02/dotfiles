@@ -1,43 +1,86 @@
-tap 'homebrew/bundle'
-tap 'homebrew/dupes'
-tap 'neovim/neovim'
-tap 'homebrew/homebrew-php'
-tap 'neomutt/homebrew-neomutt'
-tap 'thoughtbot/formulae'
+tap "thoughtbot/formulae"
+tap "homebrew/dupes"
+tap "homebrew/core"
+tap "homebrew/php"
+tap "homebrew/bundle"
+tap "homebrew/services"
+tap "caskroom/fonts"
+tap "caskroom/versions"
+tap "caskroom/cask"
+tap "neomutt/neomutt"
 
-brew 'ack'
-brew 'ag'
-brew 'bash'
-brew 'coreutils'
-brew 'diff-so-fancy'
-brew 'fzf'
-brew 'go'
-brew 'grep', args: ['with-default-names']
-brew 'grc'
-brew 'imagemagick'
-brew 'jq'
-brew 'neomutt'
-brew 'neovim'
-brew 'offlineimap'
-brew 'openssl'
-brew 'node'
-brew 'postgresql'
-brew 'python'
-brew 'python3'
-brew 'readline'
-brew 'ruby-install'
-brew 'chruby'
-brew 'rcm'
-brew 'reattach-to-user-namespace'
-brew 'redis'
-brew 'sqlite'
-brew 'task'
-brew 'tmux'
-brew 'tree'
-brew 'unrar'
-brew 'vim'
-brew 'wget'
-brew 'yarn'
-brew 'z'
+brew "ack"
+brew "automake"
+brew "openssl"
+brew "gdbm"
+brew "readline"
+brew "sqlite"
+brew "python3"
+brew "awscli"
+brew "bash"
+brew "bison"
+brew "chruby"
+brew "coreutils"
+brew "diff-so-fancy"
+brew "erlang"
+brew "fasd"
+brew "fswatch"
+brew "fzf"
+brew "gem_home", args: ["HEAD"]
+brew "git"
+brew "git-crypt"
+brew "libffi"
+brew "gnupg", link: false
+brew "go"
+brew "gradle"
+brew "graphviz"
+brew "grc"
+brew "grep", args: ["with-default-names"]
+brew "grip"
+brew "imagemagick", args: ["with-x11"]
+brew "jemalloc"
+brew "jq"
+brew "kafkacat"
+brew "libuv"
+brew "libyaml"
+brew "luajit"
+brew "lynx"
+brew "markdown"
+brew "mas"
+brew "node"
+brew "offlineimap"
+brew "openssl@1.1"
+brew "pandoc"
+brew "postgresql"
+brew "python"
+brew "reattach-to-user-namespace"
+brew "redis"
+brew "ruby-install"
+brew "shellcheck"
+brew "task"
+brew "the_silver_searcher"
+brew "tmux"
+brew "tree"
+brew "unrar"
+brew "vim"
+brew "watch"
+brew "wget"
+brew "yarn"
+brew "z"
+brew "neomutt/neomutt/neomutt"
+brew "thoughtbot/formulae/rcm"
 
-cask 'karabiner-elements'
+cask "karabiner-elements"
+cask "macdown"
+cask "caskroom/fonts/font-hack-nerd-font"
+cask "caskroom/fonts/font-meslo-for-powerline"
+cask "caskroom/fonts/font-meslo-lg"
+cask "caskroom/fonts/font-meslo-nerd-font"
+cask "caskroom/fonts/font-meslo-nerd-font-mono"
+cask "caskroom/versions/google-chrome-canary"
+cask "firefox-beta"
+cask "iterm-nightly"
+
+mas "1Password", id: 443987910
+mas "Moom", id: 419330170
+mas "Skitch", id: 425955336
