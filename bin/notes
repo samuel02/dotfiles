@@ -1,0 +1,73 @@
+#!/usr/bin/env bash
+set -e
+
+NOTES_DIR="$HOME/Dropbox/Notes"
+NOTES_EDITOR="vim +Goyo +3"
+
+_new_note() {
+    note_name="$@"
+    timestamp="$(date +%Y-%m-%d_%H:%S)"
+
+    if [ -z "$note_name" ]; then
+      read -rp 'Title: ' note_name
+    fi
+
+    filename="$(echo "$note_name" | tr ' ' '-' | tr -cd 'a-za-z0-9_-').md"
+
+    note="$NOTES_DIR/$timestamp-$filename"
+    touch "$note"
+    printf "# %s\\n\\n" "$note_name" > "$note"
+    $NOTES_EDITOR "$note"
+}
+
+_open_note() {
+  $NOTES_EDITOR "$1"
+}
+
+_delete_note() {
+  rm -i "$1"
+}
+
+_list_notes() {
+  while true; do
+    readarray -t fzf_output <<< "$(cd "$NOTES_DIR" && \
+                                  fzf --preview="cat {}" \
+                                      --preview-window=right:70%:wrap \
+                                      --expect "ctrl-n,ctrl-d,ctrl-c")"
+
+    fzf_command=${fzf_output[0]}
+    fzf_selected_file=${fzf_output[1]}
+
+    if [ "$fzf_command" == "ctrl-n" ]; then
+      _new_note
+      continue
+    fi
+
+    if [ "$fzf_command" == "ctrl-d" ]; then
+      _delete_note "$NOTES_DIR/$fzf_selected_file"
+      continue
+    fi
+
+    if [ "$fzf_command" == "ctrl-c" ]; then
+      exit
+    fi
+
+    if [ ! -z "$fzf_selected_file" ]; then
+      _open_note "$NOTES_DIR/$fzf_selected_file"
+      continue
+    fi
+  done
+}
+
+if [ $# -lt 1 ]; then
+  _list_notes
+fi
+
+while [ $# -gt 0 ]
+do
+  case ${1} in
+    new         ) shift; _new_note "$@" && _list_notes ;;
+    *           ) break ;;
+  esac
+  shift
+done
