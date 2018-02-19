@@ -1,4 +1,4 @@
-let g:airline_theme = 'cobalt2'
+let g:airline_theme = 'solarized'
 let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#ale#enabled = 1

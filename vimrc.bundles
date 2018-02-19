@@ -31,6 +31,8 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-scripts/gitignore'
 Plug 'wincent/terminus'
+Plug 'altercation/vim-colors-solarized'
+""Plug 'edkolev/tmuxline.vim'
 
 if g:has_async
   Plug 'w0rp/ale'

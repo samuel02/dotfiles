@@ -15,19 +15,9 @@ alias z='fasd_cd -d' # cd, same functionality as j in autojump
 alias zz='fasd_cd -d -i' # interactive directory jump
 
 # colors
-if (( $+commands[grc] )) && (( $+commands[brew] ))
-then
-  # GRC colorizes nifty unix tools all over the place
-  source `brew --prefix`/etc/grc.bashrc
-fi
-
-if $(gls &>/dev/null)
-then
-  alias ls="gls -F --color"
-  alias l="gls -lAh --color"
-  alias ll="gls -l --color"
-  alias la='gls -A --color'
-fi
+eval $(gdircolors ~/.dircolors)
+alias ls="gls -F --color"
+alias ll="ls -la --color"
 alias grep="grep --color=auto"
 
 # git

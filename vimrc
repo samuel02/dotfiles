@@ -41,12 +41,13 @@ set wildmode=list:longest,list:full
 set wildignore+=*.o,*.obj,.git,*.rbc,*.pyc,__pycache__
 
 "" Load plugins
+filetype plugin indent on
 if filereadable(expand("~/.vimrc.bundles"))
   source ~/.vimrc.bundles
 endif
 
 "" Visual Settings
-filetype plugin indent on
+set t_Co=256
 set tabstop=4
 set shiftwidth=4
 set expandtab
@@ -55,7 +56,9 @@ set ruler
 set number
 set colorcolumn=80
 
-colorscheme cobalt2
+"colorscheme cobalt2
+set background=dark
+colorscheme solarized
 
 set mouse=a
 set mousemodel=popup
