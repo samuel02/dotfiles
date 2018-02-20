@@ -70,6 +70,7 @@ brew "z"
 brew "neomutt/neomutt/neomutt"
 brew "thoughtbot/formulae/rcm"
 
+cask 'xquartz'
 cask "karabiner-elements"
 cask "macdown"
 cask "caskroom/fonts/font-hack-nerd-font"

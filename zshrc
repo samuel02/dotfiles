@@ -39,3 +39,5 @@ done
 unset config_files
 
 source $DOTFILES/zsh/path.zsh
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

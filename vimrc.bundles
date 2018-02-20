@@ -32,6 +32,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-scripts/gitignore'
 Plug 'wincent/terminus'
 Plug 'altercation/vim-colors-solarized'
+Plug '/usr/local/opt/fzf'
 ""Plug 'edkolev/tmuxline.vim'
 
 if g:has_async
