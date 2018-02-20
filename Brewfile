@@ -37,6 +37,7 @@ brew "graphviz"
 brew "grc"
 brew "grep", args: ["with-default-names"]
 brew "grip"
+brew "highlight"
 brew "imagemagick", args: ["with-x11"]
 brew "jemalloc"
 brew "jq"

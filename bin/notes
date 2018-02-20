@@ -40,7 +40,7 @@ _delete_note() {
 _list_notes() {
   while true; do
     readarray -t fzf_output <<< "$(cd "$NOTES_DIR" && \
-                                  fzf --preview="cat {}" \
+                                  fzf --preview="highlight -O ansi -l {} 2> /dev/null" \
                                       --preview-window=right:70%:wrap \
                                       --expect "ctrl-n,ctrl-d,ctrl-c")"
 
