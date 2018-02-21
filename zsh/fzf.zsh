@@ -1,3 +1,12 @@
+# Setup fzf
+if [[ ! "$PATH" == */usr/local/opt/fzf/bin* ]]; then
+  export PATH="$PATH:/usr/local/opt/fzf/bin"
+fi
+
+# Key bindings
+source "/usr/local/opt/fzf/shell/key-bindings.zsh"
+
+# Default opts
 _gen_fzf_default_opts() {
   local base03="234"
   local base02="235"
@@ -24,4 +33,5 @@ _gen_fzf_default_opts() {
     --color info:$yellow,prompt:$yellow,pointer:$base3,marker:$base3,spinner:$yellow
   "
 }
+
 _gen_fzf_default_opts
