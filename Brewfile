@@ -80,8 +80,6 @@ cask "caskroom/fonts/font-meslo-lg"
 cask "caskroom/fonts/font-meslo-nerd-font"
 cask "caskroom/fonts/font-meslo-nerd-font-mono"
 cask "caskroom/versions/google-chrome-canary"
-cask "firefox-beta"
-cask "iterm-nightly"
 
 mas "1Password", id: 443987910
 mas "Moom", id: 419330170
