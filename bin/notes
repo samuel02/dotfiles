@@ -1,7 +1,7 @@
-#!/usr/bin/env bash
+#!/bin/sh
 set -e
 
-NOTES_DIR="$HOME/Dropbox/Notes"
+NOTES_DIR="$HOME/Dropbox/Notes/Klarna"
 NOTES_EDITOR="vim +Goyo +3"
 
 _new_note() {
@@ -9,7 +9,8 @@ _new_note() {
     timestamp="$(date +%Y%m%d)"
 
     if [ -z "$note_name" ]; then
-      read -rp 'Title: ' note_name
+      printf 'Title: '
+      read -r note_name
     fi
 
     filename="$(echo "$note_name"          | \
@@ -26,11 +27,11 @@ _new_note() {
     touch "$note"
     printf "# %s\\n\\n" "$note_name" > "$note"
 
-    $NOTES_EDITOR "$note"
+    eval "$NOTES_EDITOR $note"
 }
 
 _open_note() {
-  $NOTES_EDITOR "$1"
+  eval "$NOTES_EDITOR $1"
 }
 
 _delete_note() {
@@ -39,30 +40,31 @@ _delete_note() {
 
 _list_notes() {
   while true; do
-    readarray -t fzf_output <<< "$(cd "$NOTES_DIR" && \
-                                  fzf --preview="highlight -O ansi -l {} 2> /dev/null" \
-                                      --preview-window=right:70%:wrap \
-                                      --expect "ctrl-n,ctrl-d,ctrl-c")"
+    ifs="$(printf '%b_' '\n')"
+    IFS="${ifs%_}" out="$(cd "$NOTES_DIR" && \
+                     fzf --preview="highlight -O ansi -l {} 2> /dev/null" \
+                     --preview-window=right:70%:wrap \
+                     --expect "ctrl-n,ctrl-d,ctrl-c")"
 
-    fzf_command=${fzf_output[0]}
-    fzf_selected_file=${fzf_output[1]}
+    key=$(printf "%s" "$out" | head -1)
+    selected_file=$(printf "%s" "$out" | head -2 | tail -1)
 
-    if [ "$fzf_command" == "ctrl-n" ]; then
+    if [ "$key" = "ctrl-n" ]; then
       _new_note
       continue
     fi
 
-    if [ "$fzf_command" == "ctrl-d" ]; then
-      _delete_note "$NOTES_DIR/$fzf_selected_file"
+    if [ "$key" = "ctrl-d" ]; then
+      _delete_note "$NOTES_DIR/$selected_file"
       continue
     fi
 
-    if [ "$fzf_command" == "ctrl-c" ]; then
+    if [ "$key" = "ctrl-c" ]; then
       exit
     fi
 
-    if [ ! -z "$fzf_selected_file" ]; then
-      _open_note "$NOTES_DIR/$fzf_selected_file"
+    if [ ! -z "$selected_file" ]; then
+      _open_note "$NOTES_DIR/$selected_file"
       continue
     fi
   done
