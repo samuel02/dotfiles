@@ -1,3 +1,8 @@
+autoload -U compinit
+compinit
+
+zstyle ':completion:*' menu select
+
 # matches case insensitive for lowercase
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 
@@ -5,4 +10,4 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 zstyle ':completion:*' insert-tab pending
 
 [[ $- == *i* ]] && source "/usr/local/opt/fzf/shell/completion.zsh" 2> /dev/null
-
+fpath=(/usr/local/share/zsh-completions $fpath)

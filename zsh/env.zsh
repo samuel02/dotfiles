@@ -1,3 +1,5 @@
 export EDITOR='vim'
-export GREP_COLOR='1;33'
 export NOTES_EDITOR='vim +Goyo +3'
+export LESS='-R -M'
+export PAGER=${PAGER:-"less"}
+export PYGMENTIZE_THEME="solarized256"

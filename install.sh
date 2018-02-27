@@ -1,7 +1,7 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
 # Install homebrew unless already installed
-if test ! $(which brew)
+if test ! "$(which brew)"
 then
     echo "› installing homebrew"
     /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -19,9 +19,15 @@ brew install mas
 echo "› brew bundle"
 brew bundle
 
+# Set shell
+echo "› chsh -s /usr/local/bin/zsh"
+brew bundle
+
 # Install python packages
 echo "› installing python packages"
-pip2 install gcalcli
+pip2 install gcalcli pygments
+curl https://raw.githubusercontent.com/gthank/solarized-dark-pygments/master/solarized256.py \
+  --output /usr/local/lib/python2.7/site-packages/pygments/styles/solarized256.py
 
 # Setup dotfiles
 echo "› setup dotfiles"
@@ -30,11 +36,11 @@ RCRC=~/.dotfiles/rcrc rcup
 # Copy example files
 echo "› add local config files"
 for file in "$HOME"/.dotfiles/*.example; do
-  basename=`basename $file`
+  basename="$(basename "$file")"
   src=$file
   dest="$HOME/.${basename%.*}"
 
-  cp -v -n $src $dest
+  cp -v -n "$src" "$dest"
 done
 
 # Install vim plugins

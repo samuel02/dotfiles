@@ -1,43 +1,32 @@
-# Must be set in order to exclude files
-# when globbing for all config files
-setopt EXTENDED_GLOB
-
 # shortcut to this dotfiles path is $ZSH
 export DOTFILES=$HOME/.dotfiles
-
-# local config
-if [[ -a ~/.localrc ]]
-then
-  source ~/.localrc
-fi
 
 # load custom executable functions
 for function in $DOTFILES/zsh/functions/*; do
   source $function
 done
 
-# all of our zsh files
-typeset -U config_files
-config_files=($DOTFILES/zsh/*.zsh)
-
-# load everything but the path and completion files
-for file in ${${config_files:#*/path.zsh}:#*/completion.zsh}
-do
-  source $file
-done
-
-# initialize autocomplete here, otherwise functions won't be loaded
-autoload -U compinit
-compinit
-
-# load every completion after autocomplete loads
-for file in ${(M)config_files:#*/completion.zsh}
-do
-  source $file
-done
-
-unset config_files
-
+source $DOTFILES/zsh/config.zsh
+source $DOTFILES/zsh/aliases.zsh
+source $DOTFILES/zsh/chruby.zsh
+source $DOTFILES/zsh/colors.zsh
+source $DOTFILES/zsh/env.zsh
+source $DOTFILES/zsh/fasd.zsh
+source $DOTFILES/zsh/fzf.zsh
+source $DOTFILES/zsh/gem_home.zsh
+source $DOTFILES/zsh/prompt.zsh
+source $DOTFILES/zsh/completion.zsh
 source $DOTFILES/zsh/path.zsh
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/local/share/zsh-history-substring-search/zsh-history-substring-search.zsh
+
+# setup keys
+source $DOTFILES/zsh/keys.zsh
+
+# local config
+if [[ -a ~/.localrc ]]
+then
+  source ~/.localrc
+fi
