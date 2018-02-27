@@ -1,8 +1,8 @@
 #!/bin/sh
 set -e
 
-NOTES_DIR="$HOME/Dropbox/Notes/Klarna"
-NOTES_EDITOR="vim +Goyo +3"
+NOTES_DIR=${NOTES_DIR:-"$HOME/.notes"}
+NOTES_EDITOR=${NOTES_EDITOR:-"$EDITOR"}
 
 _new_note() {
     note_name="$*"
@@ -69,6 +69,8 @@ _list_notes() {
     fi
   done
 }
+
+mkdir -p $NOTES_DIR
 
 if [ $# -lt 1 ]; then
   _list_notes
