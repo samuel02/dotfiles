@@ -126,3 +126,7 @@ if (( $+commands[grc] )); then
   fi
 
 fi
+
+# set color for autosuggestions
+export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=grey'
+

@@ -7,9 +7,7 @@ for function in $DOTFILES/zsh/functions/*; do
 done
 
 source $DOTFILES/zsh/config.zsh
-source $DOTFILES/zsh/aliases.zsh
 source $DOTFILES/zsh/chruby.zsh
-source $DOTFILES/zsh/colors.zsh
 source $DOTFILES/zsh/env.zsh
 source $DOTFILES/zsh/fasd.zsh
 source $DOTFILES/zsh/fzf.zsh
@@ -22,14 +20,14 @@ source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/local/share/zsh-history-substring-search/zsh-history-substring-search.zsh
 
-# set color for autosuggestions
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=grey'
+# setup colors
+source $DOTFILES/zsh/colors.zsh
+
+# setup aliases
+source $DOTFILES/zsh/aliases.zsh
 
 # setup keys
 source $DOTFILES/zsh/keys.zsh
 
 # local config
-if [[ -a ~/.localrc ]]
-then
-  source ~/.localrc
-fi
+source ~/.localrc
