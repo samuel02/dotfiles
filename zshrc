@@ -22,6 +22,9 @@ source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/local/share/zsh-history-substring-search/zsh-history-substring-search.zsh
 
+# set color for autosuggestions
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=grey'
+
 # setup keys
 source $DOTFILES/zsh/keys.zsh
 
