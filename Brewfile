@@ -57,6 +57,7 @@ brew "postgresql"
 brew "python"
 brew "reattach-to-user-namespace"
 brew "redis"
+brew 'ripgrep'
 brew "ruby-install"
 brew "shellcheck"
 brew "task"
