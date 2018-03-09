@@ -29,3 +29,9 @@ fdr() {
   local DIR=$(get_parent_dirs $(realpath "${1:-$PWD}") | fzf --height=10 --tac)
   cd "$DIR"
 }
+
+gco() {
+  git checkout $(git branch | \
+                 cut -d " " -f 2- | \
+                 fzf --query="$1" --height=10 --select-1)
+}
