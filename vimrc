@@ -28,6 +28,7 @@ set clipboard=unnamed,unnamedplus
 
 "" Splitting
 set splitright
+set splitbelow
 
 "" Round indent to multiple of 'shiftwidth'
 set shiftround
@@ -48,8 +49,8 @@ endif
 
 "" Visual Settings
 set t_Co=256
-set tabstop=4
-set shiftwidth=4
+set tabstop=2
+set shiftwidth=2
 set expandtab
 syntax on
 set ruler
@@ -71,8 +72,8 @@ set guifont=Meslo\ LG\ S\ Regular\ for\ Powerline:h12
 let mapleader=','
 
 "" Split
-noremap <Leader>h :<C-u>split<CR>
-noremap <Leader>v :<C-u>vsplit<CR>
+noremap <leader>h :<C-u>split<CR>
+noremap <leader>v :<C-u>vsplit<CR>
 
 "" Set working directory
 nnoremap <leader>. :lcd %:p:h<CR>
