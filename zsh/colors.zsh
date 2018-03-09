@@ -15,7 +15,7 @@ export LESS_TERMCAP_ue=$(tput rmul; tput sgr0)
 export LESS_TERMCAP_mr=$(tput rev)
 export LESS_TERMCAP_mh=$(tput dim)
 
-PYGMENTIZE_THEME=${PYGMENTIZE_THEME:-"monokai"}
+PYGMENTIZE_THEME="solarized256"
 
 _pygmentize_theme(){
   if (( $+commands[pygmentize] )); then
