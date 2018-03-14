@@ -8,7 +8,7 @@ set nobomb
 set backspace=indent,eol,start
 
 "" Enable hidden buffers
-set nohidden
+set hidden
 
 "" Searching
 set hlsearch
