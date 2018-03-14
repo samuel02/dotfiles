@@ -17,7 +17,7 @@ _gen_fzf_default_opts() {
   local cyan="37"
   local green="64"
 
-  # Comment and uncomment below for the light theme.
+  export FZF_DEFAULT_COMMAND='fd --type f --hidden --no-ignore --follow --exclude .git --exclude .git-crypt --exclude .gem --exclude node_modules --exclude coverage'
 
   # Solarized Dark color scheme for fzf
   export FZF_DEFAULT_OPTS="
@@ -27,3 +27,13 @@ _gen_fzf_default_opts() {
 }
 
 _gen_fzf_default_opts
+
+_fzf_compgen_path() {
+  fd --hidden --follow --exclude ".git" . "$1"
+}
+
+# Use fd to generate the list for directory completion
+_fzf_compgen_dir() {
+  fd --type d --hidden --follow --exclude ".git" . "$1"
+}
+
