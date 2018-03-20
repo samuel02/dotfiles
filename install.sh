@@ -1,5 +1,7 @@
 #!/bin/sh
 
+DOTFILES="$HOME/.dotfiles"
+
 # Install homebrew unless already installed
 if test ! "$(which brew)"
 then
@@ -31,7 +33,7 @@ curl https://raw.githubusercontent.com/gthank/solarized-dark-pygments/master/sol
 
 # Setup dotfiles
 echo "› setup dotfiles"
-RCRC=~/.dotfiles/rcrc rcup
+RCRC="$DOTFILES/rcrc" rcup
 
 # Copy example files
 echo "› add local config files"
