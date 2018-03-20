@@ -35,6 +35,10 @@ curl https://raw.githubusercontent.com/gthank/solarized-dark-pygments/master/sol
 echo "› setup dotfiles"
 RCRC="$DOTFILES/rcrc" rcup
 
+# Setup kitty.conf
+echo "› setup kitty.conf"
+ln -s "$HOME/.config/kitty/kitty.conf" ~/Library/Preferences/kitty/kitty.conf
+
 # Copy example files
 echo "› add local config files"
 for file in "$HOME"/.dotfiles/*.example; do
