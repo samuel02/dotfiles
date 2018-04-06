@@ -8,7 +8,7 @@ call plug#begin(expand('~/.vim/bundle'))
 
 Plug 'Raimondi/delimitMate'
 Plug 'airblade/vim-gitgutter'
-Plug 'bronson/vim-trailing-whitespace'
+Plug 'ntpeters/vim-better-whitespace'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'gertjanreynaert/cobalt2-vim-theme'
 Plug 'jelera/vim-javascript-syntax'
