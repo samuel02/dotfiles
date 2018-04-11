@@ -100,3 +100,10 @@ vmap > >gv
 "" Move visual block
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
+
+"" Folding
+set foldmethod=syntax
+set foldnestmax=2
+set foldlevel=2
+nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
+vnoremap <Space> zf

@@ -3,6 +3,7 @@ let g:fzf_buffers_jump = 1
 
 noremap <leader>e :Files<CR>
 noremap <leader>b :Buffers<CR>
+noremap <leader>t :BTags<CR>
 noremap <leader>f :Rg <C-R><C-W><CR>
 
 command! -bang -nargs=* Rg
