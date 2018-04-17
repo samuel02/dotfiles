@@ -2,8 +2,6 @@ if &compatible
   set nocompatible
 end
 
-let g:has_async = v:version >= 800 || has('nvim')
-
 call plug#begin(expand('~/.vim/bundle'))
 
 ""Plug 'edkolev/tmuxline.vim'
@@ -12,14 +10,12 @@ Plug 'Konfekt/FastFold'
 Plug 'Raimondi/delimitMate'
 Plug 'airblade/vim-gitgutter'
 Plug 'altercation/vim-colors-solarized'
-Plug 'bronson/vim-trailing-whitespace'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'gertjanreynaert/cobalt2-vim-theme'
 Plug 'jelera/vim-javascript-syntax'
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/goyo.vim'
 Plug 'machakann/vim-highlightedyank'
-Plug 'mileszs/ack.vim'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'ryanoasis/vim-devicons'
 Plug 'scrooloose/nerdtree'
@@ -35,10 +31,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-ruby/vim-ruby'
 Plug 'vim-scripts/gitignore'
+Plug 'w0rp/ale'
 Plug 'wincent/terminus'
-
-if g:has_async
-  Plug 'w0rp/ale'
-endif
 
 call plug#end()

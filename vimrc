@@ -58,13 +58,11 @@ set ruler
 set number
 set colorcolumn=80
 
-"colorscheme cobalt2
 set background=dark
 colorscheme solarized
 
 set mouse=a
 set mousemodel=popup
-set t_Co=256
 set guioptions=egmrti
 set gfn=Monospace\ 12
 set guifont=Meslo\ LG\ S\ Regular\ for\ Powerline:h12
@@ -76,9 +74,6 @@ let mapleader=','
 noremap <leader>h :<C-u>split<CR>
 noremap <leader>v :<C-u>vsplit<CR>
 
-"" Set working directory
-nnoremap <leader>. :lcd %:p:h<CR>
-
 "" pbcopy for OSX copy/paste
 vmap <C-x> :!pbcopy<CR>
 vmap <C-c> :w !pbcopy<CR><CR>
@@ -86,8 +81,6 @@ vmap <C-c> :w !pbcopy<CR><CR>
 "" Buffer nav
 noremap <leader>q :bp<CR>
 noremap <leader>w :bn<CR>
-
-"" Close buffer
 noremap <leader>d :bd<CR>
 
 "" Clean search (highlight)
