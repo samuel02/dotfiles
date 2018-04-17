@@ -1,12 +1,6 @@
 .DS_Store
-
-/git/config.local
-
 /zsh/.zcompdump
-
 /xterm-256color.ti
-
 /gcalcli/**/cache
 /gcalcli/**/oauth
-
 **/*.pyc
