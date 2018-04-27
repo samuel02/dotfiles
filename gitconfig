@@ -8,6 +8,7 @@
   dsf = !git-diff-so-fancy
   lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
   pushf = push --force-with-lease
+  wip = commit -m 'WIP'
 [color]
   diff = auto
   status = auto
