@@ -82,6 +82,7 @@ vmap <C-c> :w !pbcopy<CR><CR>
 noremap <leader>q :bp<CR>
 noremap <leader>w :bn<CR>
 noremap <leader>d :bd<CR>
+noremap <leader>da :BufOnly
 
 "" Clean search (highlight)
 nnoremap <silent> <leader><space> :noh<cr>
