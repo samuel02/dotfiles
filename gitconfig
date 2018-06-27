@@ -9,6 +9,7 @@
   lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
   pushf = push --force-with-lease
   wip = commit -m 'WIP'
+  diffs = !git diff --staged --color | diff-so-fancy | less --tabs=4 -RX
 [color]
   diff = auto
   status = auto
@@ -26,7 +27,7 @@
 [help]
   autocorrect = 1
 [push]
-  default = simple
+  default = current
 [filter "lfs"]
 	process = git-lfs filter-process --skip
 	required = true
