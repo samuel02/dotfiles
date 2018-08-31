@@ -1,3 +1,2 @@
 #!/usr/bin/env bash
-gcalcli agenda --nocolor --nostarted --locale=en_US | head -n2 | tail -n1 | awk -F '  ' '{print $3, $2, $5}' | sed 's/^ *//'
-
+gcalcli --nocolor agenda --military --nostarted | head -n2 | tail -n1 | awk -F '  ' '{print $3, $2, $5}' | sed 's/^ *//'

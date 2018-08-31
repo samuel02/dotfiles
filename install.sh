@@ -27,7 +27,7 @@ brew bundle
 
 # Install python packages
 echo "› installing python packages"
-pip2 install gcalcli pygments
+pip3 install gcalcli pygments --pre
 curl https://raw.githubusercontent.com/gthank/solarized-dark-pygments/master/solarized256.py \
   --output /usr/local/lib/python2.7/site-packages/pygments/styles/solarized256.py
 
