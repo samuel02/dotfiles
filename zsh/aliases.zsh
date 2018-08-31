@@ -5,6 +5,7 @@ alias tmux="TERM=screen-256color tmux"
 alias h="clear && cd ~"
 alias t="task limit:5"
 alias ppath='echo $PATH | tr -s ":" "\n"'
+alias cat="bat"
 
 # fasd
 alias z='fasd_cd -d' # cd, same functionality as j in autojump

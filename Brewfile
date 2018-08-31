@@ -11,6 +11,7 @@ tap "neomutt/neomutt"
 
 brew "ack"
 brew "automake"
+brew "bat"
 brew "openssl"
 brew "gdbm"
 brew "readline"
