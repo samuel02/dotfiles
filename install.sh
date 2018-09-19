@@ -55,3 +55,14 @@ fi
 
 echo "› install vim plugins"
 vim -u "$HOME"/.vimrc.bundles +PlugUpdate +PlugClean! +qa
+
+# Setup bat(https://github.com/sharkdp/bat)
+echo "› install bat"
+BAT_CONFIG_DIR="$(bat cache --config-dir)"
+
+mkdir -p "$BAT_CONFIG_DIR/themes"
+cd "$BAT_CONFIG_DIR/themes"
+git clone https://github.com/drewish/Solarized-1
+
+# Update the binary cache
+bat cache --init
