@@ -1,7 +1,5 @@
 tap "thoughtbot/formulae"
-tap "homebrew/dupes"
 tap "homebrew/core"
-tap "homebrew/php"
 tap "homebrew/bundle"
 tap "homebrew/services"
 tap "caskroom/fonts"
@@ -82,10 +80,12 @@ brew "zsh-history-substring-search"
 brew "neomutt/neomutt/neomutt"
 brew "thoughtbot/formulae/rcm"
 
+cask "java"
 cask "karabiner-elements"
 cask "caskroom/fonts/font-meslo-nerd-font"
 cask "caskroom/fonts/font-meslo-nerd-font-mono"
 cask "caskroom/versions/google-chrome-canary"
+cask "xquartz"
 
 mas "1Password 7", id: 1333542190
 mas "Moom", id: 419330170

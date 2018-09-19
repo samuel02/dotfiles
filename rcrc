@@ -1,1 +1,1 @@
-EXCLUDES="assets Brewfile install.sh com.googlecode.iterm2.plist *.example"
+EXCLUDES="assets Brewfile install.sh com.googlecode.iterm2.plist *.example macos-defaults.sh"
