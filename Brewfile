@@ -82,13 +82,11 @@ brew "zsh-history-substring-search"
 brew "neomutt/neomutt/neomutt"
 brew "thoughtbot/formulae/rcm"
 
-cask 'xquartz'
 cask "karabiner-elements"
-cask "macdown"
 cask "caskroom/fonts/font-meslo-nerd-font"
 cask "caskroom/fonts/font-meslo-nerd-font-mono"
 cask "caskroom/versions/google-chrome-canary"
 
-mas "1Password", id: 443987910
+mas "1Password 7", id: 1333542190
 mas "Moom", id: 419330170
 mas "Skitch", id: 425955336
