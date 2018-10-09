@@ -13,17 +13,16 @@ fi
 echo "› brew update"
 brew update
 
-# Install mas-cli to handle Mac App Store apps
-echo "› brew install mas"
-brew install mas
-
 # Install all formulas in Brewfile
 echo "› brew bundle"
 brew bundle
 
+# Install gem_home
+brew install --HEAD https://raw.github.com/postmodern/gem_home/master/homebrew/gem_home.rb
+
 # Set shell
 echo "› chsh -s /usr/local/bin/zsh"
-brew bundle
+chsh -s /usr/local/bin/zsh
 
 # Install python packages
 echo "› installing python packages"
@@ -56,3 +55,14 @@ fi
 
 echo "› install vim plugins"
 vim -u "$HOME"/.vimrc.bundles +PlugUpdate +PlugClean! +qa
+
+# Setup bat(https://github.com/sharkdp/bat)
+echo "› install bat"
+BAT_CONFIG_DIR="$(bat cache --config-dir)"
+
+mkdir -p "$BAT_CONFIG_DIR/themes"
+cd "$BAT_CONFIG_DIR/themes"
+git clone https://github.com/drewish/Solarized-1
+
+# Update the binary cache
+bat cache --init
