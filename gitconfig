@@ -28,8 +28,21 @@
   autocorrect = 1
 [push]
   default = current
+[merge]
+  conflictStyle = diff3
+[rerere]
+  enabled = true
+  autoUpdate = true
+[branch]
+  # Force all new branches to automatically use rebase
+  autoSetupRebase = always
+[rebase]
+  # Support fixup and squash commits
+  autoSquash = true
+  # Stash dirty worktree
+  autoStash = true
 [filter "lfs"]
-	process = git-lfs filter-process --skip
-	required = true
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge --skip -- %f
+  process = git-lfs filter-process --skip
+  required = true
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge --skip -- %f
