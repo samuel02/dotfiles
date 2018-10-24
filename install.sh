@@ -17,18 +17,19 @@ brew update
 echo "› brew bundle"
 brew bundle
 
-# Install gem_home
-brew install --HEAD https://raw.github.com/postmodern/gem_home/master/homebrew/gem_home.rb
-
 # Set shell
-echo "› chsh -s /usr/local/bin/zsh"
-chsh -s /usr/local/bin/zsh
+# If this user's login shell is not already "zsh", attempt to switch.
+TEST_CURRENT_SHELL=$(expr "$SHELL" : '.*/\(.*\)')
+if [ "$TEST_CURRENT_SHELL" != "zsh" ]; then
+  echo "› chsh -s /usr/local/bin/zsh"
+  chsh -s $(grep /zsh$ /etc/shells | tail -1)
+fi
 
 # Install python packages
 echo "› installing python packages"
 pip3 install gcalcli pygments --pre
 curl https://raw.githubusercontent.com/gthank/solarized-dark-pygments/master/solarized256.py \
-  --output /usr/local/lib/python2.7/site-packages/pygments/styles/solarized256.py
+  --output /usr/local/lib/python3.7/site-packages/pygments/styles/solarized256.py
 
 # Setup dotfiles
 echo "› setup dotfiles"
