@@ -54,12 +54,4 @@ directory_name() {
   echo "%{$fg_bold[cyan]%}%~%{$reset_color%}"
 }
 
-timestamp() {
-  echo "%{$fg_bold[cyan]%}%D{%F} %T%{$reset_color%}"
-}
-
 export PROMPT=$'\n$(directory_name) $(git_dirty)$(need_push)\n› '
-
-precmd() {
-  export RPROMPT=$'$(timestamp)'
-}
