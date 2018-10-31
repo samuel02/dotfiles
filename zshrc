@@ -31,3 +31,6 @@ source $DOTFILES/zsh/keys.zsh
 
 # local config
 source ~/.localrc
+
+# direnv
+eval "$(direnv hook zsh)"
