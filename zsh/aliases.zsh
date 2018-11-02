@@ -3,7 +3,6 @@ alias reload!='. ~/.zshrc'
 alias be='bundle exec'
 alias tmux="TERM=screen-256color tmux"
 alias h="clear && cd ~"
-alias t="task limit:5"
 alias ppath='echo $PATH | tr -s ":" "\n"'
 alias cat="bat"
 
