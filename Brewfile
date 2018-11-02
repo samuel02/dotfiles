@@ -82,7 +82,6 @@ brew "zsh-syntax-highlighting"
 brew 'ripgrep'
 
 cask "java"
-cask "karabiner-elements"
 cask "caskroom/fonts/font-meslo-nerd-font"
 cask "caskroom/fonts/font-meslo-nerd-font-mono"
 cask "caskroom/versions/google-chrome-canary"
