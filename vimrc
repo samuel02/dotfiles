@@ -50,6 +50,7 @@ end
 
 call plug#begin(expand('~/.vim/bundle'))
 Plug '/usr/local/opt/fzf'
+Plug 'AndrewRadev/splitjoin.vim'
 Plug 'Konfekt/FastFold'
 Plug 'Raimondi/delimitMate'
 Plug 'airblade/vim-gitgutter'
