@@ -57,7 +57,6 @@ Plug 'altercation/vim-colors-solarized'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'gertjanreynaert/cobalt2-vim-theme'
 Plug 'gurpreetatwal/vim-avro'
-Plug 'pangloss/vim-javascript'
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/goyo.vim'
 Plug 'machakann/vim-highlightedyank'
@@ -87,8 +86,6 @@ runtime macros/matchit.vim
 
 "" Visual Settings
 set t_Co=256
-set tabstop=2
-set shiftwidth=2
 set expandtab
 syntax on
 set ruler
