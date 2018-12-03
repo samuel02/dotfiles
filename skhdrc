@@ -15,11 +15,11 @@ resize < k : chunkc tiling::window --use-temporary-ratio 0.05 --adjust-window-ed
 resize < l : chunkc tiling::window --use-temporary-ratio 0.05 --adjust-window-edge east;\
              chunkc tiling::window --use-temporary-ratio -0.05 --adjust-window-edge west
 
-# window - fullscreen
-cmd + shift - f : chunkc tiling::window --toggle fullscreen
-
 # window - equalize
 resize < space : chunkc tiling::desktop --equalize
+
+# window - fullscreen
+cmd + shift - f : chunkc tiling::window --toggle fullscreen
 
 # window - move
 cmd + shift - h : chunkc tiling::window --warp west
@@ -39,10 +39,6 @@ cmd + shift - w : chunkc tiling::desktop --annihilate
 # desktop - focus
 cmd - 0x21 : chunkc tiling::desktop --focus prev
 cmd - 0x1E : chunkc tiling::desktop --focus next
-cmd - 1 : chunkc tiling::desktop --focus 1
-cmd - 2 : chunkc tiling::desktop --focus 2
-cmd - 3 : chunkc tiling::desktop --focus 3
-cmd - 4 : chunkc tiling::desktop --focus 4
 
 # desktop - create, move window and follow focus
 cmd + shift - n : chunkc tiling::desktop --create;\
