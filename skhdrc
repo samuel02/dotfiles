@@ -1,9 +1,12 @@
 # open terminal
 cmd - return : open -n /Applications/Alacritty.app
 
+# open browser
+cmd + shift - return : open -n /Applications/Google\ Chrome.app
+
 :: resize @
 cmd + shift - r ; resize
-resize < ctrl - g ; default
+resize < cmd + shift - r ; default
 
 # increase/decrease region size
 resize < h : chunkc tiling::window --use-temporary-ratio 0.05 --adjust-window-edge west;\
