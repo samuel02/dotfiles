@@ -5,6 +5,7 @@ alias tmux="TERM=screen-256color tmux"
 alias h="clear && cd ~"
 alias ppath='echo $PATH | tr -s ":" "\n"'
 alias cat="bat"
+alias dc="docker-compose"
 
 # fasd
 alias z='fasd_cd -d' # cd, same functionality as j in autojump
