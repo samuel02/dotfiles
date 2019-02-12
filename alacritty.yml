@@ -10,7 +10,6 @@ env:
   # each instance of Alacritty. If it is not present, alacritty will
   # check the local terminfo database and use 'alacritty' if it is
   # available, otherwise 'xterm-256color' is used.
-  #
   TERM: xterm-256color
 
 window:
@@ -30,23 +29,22 @@ window:
     x: 10
     y: 2
 
-  # Window decorations
-  #
-  # Available values:
-  # - `full`: Window with title bar and title bar buttons
-  # - `none`: Window without title bar, rounded corners, or drop shadow
-  # - `transparent`: Window with title bar with transparent background and title
-  #   bar buttons
-  # - `buttonless`: Window with title bar with transparent background and no
-  #   title bar buttons
-  # Window decorations
+  # Spread additional padding evenly around the terminal content.
+  dynamic_padding: false
+
+    # Window decorations
   #
   # Values for `decorations`:
   #     - full: Borders and title bar
   #     - none: Neither borders nor title bar
+  #
+  # Values for `decorations` (macOS only):
   #     - buttonless: Title bar, transparent background and title bar buttons
   #     - transparent: Title bar, transparent background, but no title bar buttons
   decorations: none
+
+  # When true, alacritty starts maximized.
+  start_maximized: false
 
 scrolling:
   # Maximum number of lines in the scrollback buffer.
@@ -120,6 +118,9 @@ font:
 # Display the time it takes to redraw each frame.
 render_timer: false
 
+# Keep the log file after quitting Alacritty.
+persistent_logging: false
+
 # If `true`, bold text is drawn using the bright color variants.
 draw_bold_text_with_bright_colors: false
 
@@ -176,6 +177,7 @@ colors:
 visual_bell:
   animation: EaseOutExpo
   duration: 0
+  color: '0xffffff'
 
 # Background opacity
 background_opacity: 1.0
@@ -207,19 +209,22 @@ mouse:
   double_click: { threshold: 300 }
   triple_click: { threshold: 300 }
 
+  # If this is `true`, the cursor is temporarily hidden when typing.
+  hide_when_typing: false
+
   # URL Launcher
   #
   # This program is executed when clicking on a text which is recognized as a URL.
   # The URL is always added to the command as the last parameter.
-  url_launcher:
-    program: /usr/bin/open
+  url:
+    launcher: /usr/bin/open
     modifiers: Command
 
 selection:
   semantic_escape_chars: ",│`|:\"' ()[]{}<>"
 
   # When set to `true`, selected text will be copied to the primary clipboard.
-  save_to_clipboard: false
+  save_to_clipboard: true
 
 dynamic_title: true
 
@@ -245,6 +250,20 @@ shell:
   program: /usr/local/bin/zsh
   args:
     - --login
+
+# Windows 10 ConPTY backend (Windows only)
+#
+# This will enable better color support and may resolve other issues,
+# however this API and its implementation is still young and so is
+# disabled by default, as stability may not be as good as the winpty
+# backend.
+#
+# Alacritty will fall back to the WinPTY automatically if the ConPTY
+# backend cannot be initialized.
+enable_experimental_conpty_backend: false
+
+# Send ESC (\x1b) before characters when alt is pressed.
+alt_send_esc: true
 
 # Key bindings
 #
