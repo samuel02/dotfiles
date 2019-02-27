@@ -10,6 +10,8 @@
   pushf = push --force-with-lease
   wip = commit -m 'WIP'
   diffs = !git diff --staged --color | diff-so-fancy | less --tabs=4 -RX
+  amend = commit --amend
+  ammend = commit --amend
 [color]
   diff = auto
   status = auto
