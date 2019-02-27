@@ -17,7 +17,7 @@ brew "bat"
 brew "bison"
 brew "coreutils"
 brew "ctags"
-brew "chunkwm"
+brew "chunkwm", args: ["with-logging", "without-ffm", "HEAD"]
 brew "diff-so-fancy"
 brew "diffutils"
 brew "direnv"
@@ -28,7 +28,6 @@ brew "fontforge"
 brew "fswatch"
 brew "fzf"
 brew "gdbm"
-brew "gem_home", args: ["HEAD"]
 brew "git"
 brew "git-crypt"
 brew "gnupg", link: false
