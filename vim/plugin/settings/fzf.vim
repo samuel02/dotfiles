@@ -17,6 +17,7 @@ command! -bang -nargs=* Rg
   \       --follow
   \       --glob "!.git/*"
   \       --glob "!.gem/*"
+  \       --glob "!.direnv/*"
   \       --glob "!node_modules/*"
   \       --glob "!tmp/*"
   \       --glob "!coverage/*"
