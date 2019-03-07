@@ -54,12 +54,12 @@ info "install vim plugins"
 vim +PlugUpdate +PlugClean! +qa
 
 # Setup bat(https://github.com/sharkdp/bat)
-bat_config_dir="$(bat cache --config-dir)"
+bat_config_dir="$(bat --config-dir)"
 bat_themes_dir="$bat_config_dir/themes"
-bat_solarized_theme="$bat_themes_dir/Solarized-1"
+bat_solarized_theme="$bat_themes_dir/Solarized"
 if [ ! -d "$bat_solarized_theme" ]; then
   info "setup bat"
   mkdir -p "$bat_themes_dir"
-  git clone "https://github.com/drewish/Solarized-1" "$bat_solarized_theme"
-  bat cache --init
+  git clone "https://github.com/deplorableword/textmate-solarized" "$bat_solarized_theme"
+  bat cache --build
 fi
