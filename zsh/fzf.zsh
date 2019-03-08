@@ -20,7 +20,7 @@ _gen_fzf_default_opts() {
   # Use ~~ as the trigger sequence instead of the default **
   export FZF_COMPLETION_TRIGGER='...'
 
-  export FZF_DEFAULT_COMMAND='fd --type f --hidden --no-ignore --follow --exclude .git --exclude .git-crypt --exclude .gem --exclude node_modules --exclude coverage'
+  export FZF_DEFAULT_COMMAND='fd --type f --hidden --no-ignore --follow --exclude .git --exclude .git-crypt --exclude .gem --exclude node_modules --exclude coverage --exclude .direnv --exclude tmp'
 
   # Solarized Dark color scheme for fzf
   export FZF_DEFAULT_OPTS="
@@ -39,4 +39,3 @@ _fzf_compgen_path() {
 _fzf_compgen_dir() {
   fd --type d --hidden --follow --exclude ".git" . "$1"
 }
-

@@ -11,10 +11,21 @@ set backspace=indent,eol,start
 set hidden
 
 "" Searching
-set hlsearch
 set incsearch
 set ignorecase
 set smartcase
+map /  <Plug>(incsearch-forward)
+map ?  <Plug>(incsearch-backward)
+map g/ <Plug>(incsearch-stay)
+
+set hlsearch
+let g:incsearch#auto_nohlsearch = 1
+map n  <Plug>(incsearch-nohl-n)
+map N  <Plug>(incsearch-nohl-N)
+map *  <Plug>(incsearch-nohl-*)
+map #  <Plug>(incsearch-nohl-#)
+map g* <Plug>(incsearch-nohl-g*)
+map g# <Plug>(incsearch-nohl-g#)
 
 "" Directories for swp files
 set nobackup
@@ -58,6 +69,7 @@ Plug 'altercation/vim-colors-solarized'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'gertjanreynaert/cobalt2-vim-theme'
 Plug 'gurpreetatwal/vim-avro'
+Plug 'haya14busa/incsearch.vim'
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/goyo.vim'
 Plug 'machakann/vim-highlightedyank'
@@ -121,7 +133,7 @@ noremap <leader>d :bd<CR>
 noremap <leader>da :BufOnly
 
 "" Clean search (highlight)
-nnoremap <silent> <leader><space> :noh<cr>
+" nnoremap <silent> <leader><space> :noh<cr>
 
 "" Vmap for maintain Visual Mode after shifting > and <
 vmap < <gv
