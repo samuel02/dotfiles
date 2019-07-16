@@ -92,6 +92,9 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-scripts/gitignore'
 Plug 'w0rp/ale'
 Plug 'wincent/terminus'
+Plug 'vim-scripts/scons.vim'
+Plug 'vim-scripts/Scons-compiler-plugin'
+Plug 'xavierd/clang_complete'
 call plug#end()
 
 runtime macros/matchit.vim

@@ -12,3 +12,6 @@ let g:ale_fixers = {
 \   'javascript': ['eslint'],
 \   'javascriptreact': ['eslint']
 \}
+
+nnoremap ]a :ALENextWrap<CR>
+nnoremap [a :ALEPreviousWrap<CR>
