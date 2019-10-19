@@ -84,5 +84,6 @@ brew 'ripgrep'
 cask "java"
 cask "caskroom/fonts/font-meslo-nerd-font"
 cask "caskroom/fonts/font-meslo-nerd-font-mono"
+cask "alacritty"
 
 mas "1Password 7", id: 1333542190

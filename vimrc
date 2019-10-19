@@ -59,6 +59,9 @@ if &compatible
   set nocompatible
 end
 
+"" Enable ALE completion
+let g:ale_completion_enabled = 1
+
 call plug#begin(expand('~/.vim/bundle'))
 Plug '/usr/local/opt/fzf'
 Plug 'AndrewRadev/splitjoin.vim'
@@ -70,8 +73,6 @@ Plug 'haya14busa/incsearch.vim'
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/goyo.vim'
 Plug 'machakann/vim-highlightedyank'
-Plug 'mxw/vim-jsx'
-Plug 'pangloss/vim-javascript'
 Plug 'ryanoasis/vim-devicons'
 Plug 'schickling/vim-bufonly'
 Plug 'scrooloose/nerdtree'
@@ -79,14 +80,15 @@ Plug 'sheerun/vim-polyglot'
 Plug 'tmux-plugins/vim-tmux'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-surround'
+Plug 'tpope/vim-unimpaired'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'vim-ruby/vim-ruby'
 Plug 'vim-scripts/gitignore'
 Plug 'w0rp/ale'
 Plug 'wincent/terminus'
@@ -140,8 +142,8 @@ vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
 
 "" Folding
-set foldmethod=syntax
-set foldnestmax=2
-set foldlevel=2
-nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
-vnoremap <Space> zf
+" set foldmethod=syntax
+" set foldnestmax=2
+" set foldlevel=2
+" nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
+" vnoremap <Space> zf

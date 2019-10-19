@@ -5,19 +5,22 @@ info() { echo "› \033[0;32m$1\033[0m"; }
 
 DOTFILES="$HOME/.dotfiles"
 
-# Install homebrew unless already installed
-if test ! "$(command -v brew)"; then
-  echo "› installing homebrew"
-  /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+# If on MacOS
+if [ "$(uname)" = "Darwin" ]; then
+  # Install homebrew unless already installed
+  if test ! "$(command -v brew)"; then
+    echo "› installing homebrew"
+    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  fi
+
+  # Update homewbrew formulas
+  info "brew update"
+  brew update | indent
+
+  # Install all formulas in Brewfile
+  info "brew bundle"
+  brew bundle | indent
 fi
-
-# Update homewbrew formulas
-info "brew update"
-brew update | indent
-
-# Install all formulas in Brewfile
-info "brew bundle"
-brew bundle | indent
 
 # Set shell
 # If this user's login shell is not already "zsh", attempt to switch.
@@ -52,14 +55,3 @@ fi
 
 info "install vim plugins"
 vim +PlugUpdate +PlugClean! +qa
-
-# Setup bat(https://github.com/sharkdp/bat)
-bat_config_dir="$(bat --config-dir)"
-bat_themes_dir="$bat_config_dir/themes"
-bat_solarized_theme="$bat_themes_dir/Solarized"
-if [ ! -d "$bat_solarized_theme" ]; then
-  info "setup bat"
-  mkdir -p "$bat_themes_dir"
-  git clone "https://github.com/deplorableword/textmate-solarized" "$bat_solarized_theme"
-  bat cache --build
-fi

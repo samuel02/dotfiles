@@ -17,10 +17,20 @@ _gen_fzf_default_opts() {
   local cyan="37"
   local green="64"
 
-  # Use ~~ as the trigger sequence instead of the default **
+  # Use ... as the trigger sequence instead of the default **
   export FZF_COMPLETION_TRIGGER='...'
 
-  export FZF_DEFAULT_COMMAND='fd --type f --hidden --no-ignore --follow --exclude .git --exclude .git-crypt --exclude .gem --exclude node_modules --exclude coverage --exclude .direnv --exclude tmp'
+  export FZF_DEFAULT_COMMAND="fd --type f \
+                                 --hidden \
+                                 --no-ignore \
+                                 --follow \
+                                 --exclude .git \
+                                 --exclude .git-crypt \
+                                 --exclude .gem \
+                                 --exclude node_modules \
+                                 --exclude coverage \
+                                 --exclude .direnv \
+                                 --exclude tmp"
 
   # Solarized Dark color scheme for fzf
   export FZF_DEFAULT_OPTS="
