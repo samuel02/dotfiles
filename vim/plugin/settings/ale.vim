@@ -4,11 +4,13 @@ let g:ale_javascript_prettier_use_local_config = 1
 
 let g:ale_linters = {
 \   'javascript': ['eslint'],
-\   'javascriptreact': ['eslint']
+\   'javascriptreact': ['eslint'],
+\   'ruby': ['rubocop']
 \}
 
 let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
 \   'javascript': ['eslint'],
-\   'javascriptreact': ['eslint']
+\   'javascriptreact': ['eslint'],
+\   'ruby': ['rubocop']
 \}
