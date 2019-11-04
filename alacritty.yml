@@ -25,9 +25,9 @@ window:
   #
   # Specified in number of pixels.
   # If the position is not set, the window manager will handle the placement.
-  # position:
-  #   x: 0
-  #   y: 0
+  #position:
+  #  x: 0
+  #  y: 0
 
   # Window padding (changes require restart)
   #
@@ -38,7 +38,7 @@ window:
     y: 5
 
   # Spread additional padding evenly around the terminal content.
-  dynamic_padding: false
+  dynamic_padding: true
 
   # Window decorations
   #
@@ -86,7 +86,7 @@ font:
   # Normal (roman) font face
   normal:
     family: MesloLGLDZ Nerd Font
-    # style: Regular
+    #style: Regular
 
   # Point size
   size: 12.0
@@ -104,7 +104,7 @@ font:
     x: 0
     y: 0
 
-  # Thin stroke font rendering (MacOS only)
+  # Thin stroke font rendering (macOS only)
   #
   # Thin strokes are suitable for retina displays, but for non-retina screens
   # it is recommended to set `use_thin_strokes` to `false`
@@ -187,15 +187,15 @@ background_opacity: 1.0
 # Mouse bindings
 #
 # Available fields:
-#  - mouse
-#  - action
-#  - mods (optional)
+#   - mouse
+#   - action
+#   - mods (optional)
 #
 # Values for `mouse`:
-#  - Middle
-#  - Left
-#  - Right
-#  - Numeric identifier such as `5`
+#   - Middle
+#   - Left
+#   - Right
+#   - Numeric identifier such as `5`
 #
 # All available `mods` and `action` values are documented in the key binding
 # section.
@@ -293,7 +293,7 @@ alt_send_esc: true
 # Key bindings are specified as a list of objects. Each binding will specify a
 # key and modifiers required to trigger it, terminal modes where the binding is
 # applicable, and what should be done when the key binding fires. It can either
-# send a byte sequnce to the running application (`chars`), execute a
+# send a byte sequence to the running application (`chars`), execute a
 # predefined action (`action`) or fork and execute a specified command plus
 # arguments (`command`).
 #
