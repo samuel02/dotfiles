@@ -14,9 +14,9 @@ source $DOTFILES/zsh/prompt.zsh
 source $DOTFILES/zsh/completion.zsh
 source $DOTFILES/zsh/path.zsh
 
-source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /usr/local/share/zsh-history-substring-search/zsh-history-substring-search.zsh
+source $DOTFILES/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source $DOTFILES/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $DOTFILES/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
 
 # setup colors
 source $DOTFILES/zsh/colors.zsh
