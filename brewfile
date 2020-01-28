@@ -1,4 +1,3 @@
-tap "crisidev/homebrew-chunkwm"
 tap "homebrew/bundle"
 tap "homebrew/core"
 tap "homebrew/services"
@@ -14,7 +13,6 @@ brew "bat"
 brew "bison"
 brew "coreutils"
 brew "ctags"
-brew "chunkwm", args: ["with-logging", "without-ffm", "HEAD"]
 brew "diff-so-fancy"
 brew "diffutils"
 brew "direnv"
@@ -61,6 +59,7 @@ brew "redis"
 brew "ruby-install"
 brew "shellcheck"
 brew "koekeishiya/formulae/skhd"
+brew "koekeishiya/formulae/yabai", args: ['HEAD']
 brew "sqlite"
 brew "task"
 brew "telnet"
@@ -82,8 +81,8 @@ brew "zsh-syntax-highlighting"
 brew 'ripgrep'
 
 cask "java"
-cask "caskroom/fonts/font-meslo-nerd-font"
-cask "caskroom/fonts/font-meslo-nerd-font-mono"
+cask "font-meslo-nerd-font"
+cask "font-meslo-nerd-font-mono"
 cask "alacritty"
 
 mas "1Password 7", id: 1333542190
