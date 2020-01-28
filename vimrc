@@ -4,9 +4,6 @@ set fileencoding=utf-8
 set fileencodings=utf-8
 set nobomb
 
-"" Fix backspace indent
-set backspace=indent,eol,start
-
 "" Enable hidden buffers
 set hidden
 
@@ -14,25 +11,22 @@ set hidden
 set incsearch
 set ignorecase
 set smartcase
-map /  <Plug>(incsearch-forward)
-map ?  <Plug>(incsearch-backward)
-map g/ <Plug>(incsearch-stay)
-
 set hlsearch
-let g:incsearch#auto_nohlsearch = 1
-map n  <Plug>(incsearch-nohl-n)
-map N  <Plug>(incsearch-nohl-N)
-map *  <Plug>(incsearch-nohl-*)
-map #  <Plug>(incsearch-nohl-#)
-map g* <Plug>(incsearch-nohl-g*)
-map g# <Plug>(incsearch-nohl-g#)
 
-"" Directories for swp files
+"" Backup and swap
 set nobackup
+set nowritebackup
 set noswapfile
 
 "" Show commands
 set showcmd
+set cmdheight=1
+
+"" don't give |ins-completion-menu| messages.
+set shortmess+=c
+
+"" always show signcolumns
+set signcolumn=yes
 
 "" Copy/Paste/Cut
 set clipboard=unnamed,unnamedplus
@@ -41,8 +35,10 @@ set clipboard=unnamed,unnamedplus
 set splitright
 set splitbelow
 
-"" Round indent to multiple of 'shiftwidth'
+"" Indentation
+set backspace=indent,eol,start
 set shiftround
+set autoindent
 
 "" Automatically reload and write file
 set autoread
@@ -102,10 +98,10 @@ runtime macros/matchit.vim
 "" Visual Settings
 set t_Co=256
 set expandtab
-syntax on
+syntax enable
 set ruler
 set number
-set colorcolumn=80
+set colorcolumn=100
 
 set background=dark
 colorscheme solarized
@@ -131,10 +127,6 @@ vmap <C-c> :w !pbcopy<CR><CR>
 noremap <leader>q :bp<CR>
 noremap <leader>w :bn<CR>
 noremap <leader>d :bd<CR>
-noremap <leader>da :BufOnly
-
-"" Clean search (highlight)
-" nnoremap <silent> <leader><space> :noh<cr>
 
 "" Vmap for maintain Visual Mode after shifting > and <
 vmap < <gv
@@ -144,9 +136,14 @@ vmap > >gv
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
 
-"" Folding
-" set foldmethod=syntax
-" set foldnestmax=2
-" set foldlevel=2
-" nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
-" vnoremap <Space> zf
+"" Searching
+let g:incsearch#auto_nohlsearch = 1
+map /  <Plug>(incsearch-forward)
+map ?  <Plug>(incsearch-backward)
+map g/ <Plug>(incsearch-stay)
+map n  <Plug>(incsearch-nohl-n)
+map N  <Plug>(incsearch-nohl-N)
+map *  <Plug>(incsearch-nohl-*)
+map #  <Plug>(incsearch-nohl-#)
+map g* <Plug>(incsearch-nohl-g*)
+map g# <Plug>(incsearch-nohl-g#)
