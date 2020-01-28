@@ -32,7 +32,8 @@ _gen_fzf_default_opts() {
                                  --exclude .direnv \
                                  --exclude tmp \
                                  --exclude .build-debug \
-                                 --exclude install"
+                                 --exclude install \
+                                 --exclude .ccls-cache"
 
   # Solarized Dark color scheme for fzf
   export FZF_DEFAULT_OPTS="
