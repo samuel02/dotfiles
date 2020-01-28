@@ -111,7 +111,7 @@ set mouse=a
 set mousemodel=popup
 set guioptions=egmrti
 set gfn=Monospace\ 12
-set guifont=Meslo\ LG\ S\ Regular\ for\ Powerline:h12
+set guifont=MesloLGLDZ\ Nerd\ Font:h12
 
 "" Map leader to ,
 let mapleader=','
