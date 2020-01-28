@@ -55,42 +55,42 @@ if &compatible
   set nocompatible
 end
 
-"" Enable ALE completion
-let g:ale_completion_enabled = 1
-
 call plug#begin(expand('~/.vim/bundle'))
-Plug '/usr/local/opt/fzf'
-Plug 'AndrewRadev/splitjoin.vim'
-Plug 'Raimondi/delimitMate'
-Plug 'airblade/vim-gitgutter'
-Plug 'altercation/vim-colors-solarized'
-Plug 'christoomey/vim-tmux-navigator'
-Plug 'haya14busa/incsearch.vim'
-Plug 'junegunn/fzf.vim'
-Plug 'junegunn/goyo.vim'
-Plug 'machakann/vim-highlightedyank'
-Plug 'ryanoasis/vim-devicons'
-Plug 'schickling/vim-bufonly'
-Plug 'scrooloose/nerdtree'
-Plug 'sheerun/vim-polyglot'
-Plug 'tmux-plugins/vim-tmux'
-Plug 'tpope/vim-abolish'
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-dispatch'
-Plug 'tpope/vim-endwise'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-sleuth'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-unimpaired'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'vim-scripts/gitignore'
-Plug 'w0rp/ale'
-Plug 'wincent/terminus'
-Plug 'vim-scripts/scons.vim'
-Plug 'vim-scripts/Scons-compiler-plugin'
-Plug 'xavierd/clang_complete'
+  Plug '/usr/local/opt/fzf'
+  Plug 'AndrewRadev/splitjoin.vim'
+  Plug 'airblade/vim-gitgutter'
+  Plug 'altercation/vim-colors-solarized'
+  Plug 'christoomey/vim-tmux-navigator'
+  Plug 'haya14busa/incsearch.vim'
+  Plug 'junegunn/fzf.vim'
+  Plug 'junegunn/goyo.vim'
+  Plug 'machakann/vim-highlightedyank'
+  Plug 'neoclide/coc.nvim', {'branch': 'release'}
+  Plug 'neoclide/coc-css', { 'do': 'yarn install --frozen-lockfile' }
+  Plug 'neoclide/coc-tsserver', { 'do': 'yarn install --frozen-lockfile' }
+  Plug 'neoclide/coc-json', { 'do': 'yarn install --frozen-lockfile' }
+  Plug 'neoclide/coc-html', { 'do': 'yarn install --frozen-lockfile' }
+  Plug 'neoclide/coc-pairs', { 'do': 'yarn install --frozen-lockfile' }
+  Plug 'neoclide/coc-highlight', { 'do': 'yarn install --frozen-lockfile' }
+  Plug 'neoclide/coc-eslint', { 'do': 'yarn install --frozen-lockfile' }
+  Plug 'ryanoasis/vim-devicons'
+  Plug 'schickling/vim-bufonly'
+  Plug 'scrooloose/nerdtree'
+  Plug 'sheerun/vim-polyglot'
+  Plug 'tmux-plugins/vim-tmux'
+  Plug 'tpope/vim-abolish'
+  Plug 'tpope/vim-commentary'
+  Plug 'tpope/vim-dispatch'
+  Plug 'tpope/vim-fugitive'
+  Plug 'tpope/vim-repeat'
+  Plug 'tpope/vim-sleuth'
+  Plug 'tpope/vim-surround'
+  Plug 'tpope/vim-unimpaired'
+  Plug 'vim-airline/vim-airline'
+  Plug 'vim-airline/vim-airline-themes'
+  Plug 'wincent/terminus'
+  Plug 'vim-scripts/scons.vim'
+  Plug 'vim-scripts/Scons-compiler-plugin'
 call plug#end()
 
 runtime macros/matchit.vim
