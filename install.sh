@@ -1,7 +1,7 @@
-#!/bin/sh
+#!/usr/bin/env sh
 
 indent() { sed 's/^/  /'; }
-info() { echo "› \033[0;32m$1\033[0m"; }
+info() { printf "› %b\n" "\e[32m$1\e[0m"; }
 
 DOTFILES="$HOME/.dotfiles"
 
@@ -55,3 +55,11 @@ fi
 
 info "install vim plugins"
 vim +PlugUpdate +PlugClean! +qa
+
+# Install Tmux Plugin Manager
+info "install tmux plugin manager"
+if [ -e "$HOME"/.tmux/plugins/tpm ]; then
+  git clone https://github.com/tmux-plugins/tpm "$HOME"/.tmux/plugins/tpm 2> /dev/null
+else
+  (cd ~/.tmux/plugins/tpm || exit; git pull)
+fi
