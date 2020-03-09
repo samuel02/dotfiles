@@ -5,3 +5,5 @@ let g:NERDTreeWinSize = 40
 let NERDTreeMinimalUI=1
 
 noremap <Leader>n :NERDTreeToggle<CR>
+noremap <Leader>m :NERDTreeFind<CR>
+
