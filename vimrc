@@ -7,6 +7,9 @@ set nobomb
 "" Enable hidden buffers
 set hidden
 
+"" Switch to open buffer if possible
+set switchbuf=useopen
+
 "" Searching
 set incsearch
 set ignorecase
@@ -50,10 +53,6 @@ set wildignore+=*.o,*.obj,.git,*.rbc,*.pyc,__pycache__
 
 "" Load plugins
 filetype plugin indent on
-
-if &compatible
-  set nocompatible
-end
 
 call plug#begin(expand('~/.vim/bundle'))
   Plug '/usr/local/opt/fzf'
