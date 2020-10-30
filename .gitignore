@@ -4,3 +4,4 @@
 /gcalcli/**/cache
 /gcalcli/**/oauth
 **/*.pyc
+Brewfile.lock.json
