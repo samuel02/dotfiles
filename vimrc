@@ -73,6 +73,7 @@ call plug#begin(expand('~/.vim/bundle'))
   Plug 'neoclide/coc-pairs', { 'do': 'yarn install --frozen-lockfile' }
   Plug 'neoclide/coc-highlight', { 'do': 'yarn install --frozen-lockfile' }
   Plug 'neoclide/coc-eslint', { 'do': 'yarn install --frozen-lockfile' }
+  Plug 'neoclide/coc-solargraph', { 'do': 'yarn install --frozen-lockfile' }
   Plug 'ryanoasis/vim-devicons'
   Plug 'schickling/vim-bufonly'
   Plug 'scrooloose/nerdtree'
@@ -90,7 +91,6 @@ call plug#begin(expand('~/.vim/bundle'))
   Plug 'vim-airline/vim-airline-themes'
   Plug 'wincent/terminus'
   Plug 'vim-scripts/scons.vim'
-  Plug 'vim-scripts/Scons-compiler-plugin'
 call plug#end()
 
 runtime macros/matchit.vim
@@ -127,14 +127,6 @@ vmap <C-c> :w !pbcopy<CR><CR>
 noremap <leader>q :bp<CR>
 noremap <leader>w :bn<CR>
 noremap <leader>d :bd<CR>
-
-"" Vmap for maintain Visual Mode after shifting > and <
-vmap < <gv
-vmap > >gv
-
-"" Move visual block
-vnoremap J :m '>+1<CR>gv=gv
-vnoremap K :m '<-2<CR>gv=gv
 
 "" Searching
 let g:incsearch#auto_nohlsearch = 1

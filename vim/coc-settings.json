@@ -20,5 +20,11 @@
       }
     }
   },
-  "eslint.autoFixOnSave": true
+  "solargraph.useBundler": true,
+  "solargraph.diagnostics": true,
+  "solargraph.autoformat": true,
+  "solargraph.completion": true,
+  "solargraph.formatting": true,
+  "solargraph.definitions": true,
+  "eslint.autoFixOnSave": true,
 }
