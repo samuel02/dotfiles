@@ -1,6 +1,7 @@
 tap "homebrew/bundle"
 tap "homebrew/core"
 tap "homebrew/services"
+tap "homebrew/cask-fonts"
 tap "koekeishiya/formulae"
 tap "neomutt/neomutt"
 tap "thoughtbot/formulae"
@@ -30,9 +31,7 @@ brew "go"
 brew "gradle"
 brew "graphviz"
 brew "grc"
-brew "grep", args: ["with-default-names"]
 brew "highlight"
-brew "imagemagick", args: ["with-x11"]
 brew "jemalloc"
 brew "jq"
 brew "kafkacat"
@@ -52,7 +51,6 @@ brew "pandoc"
 brew "postgresql"
 brew "python"
 brew "python"
-brew "python@2"
 brew "readline"
 brew "reattach-to-user-namespace"
 brew "redis"
@@ -80,9 +78,7 @@ brew "zsh-history-substring-search"
 brew "zsh-syntax-highlighting"
 brew 'ripgrep'
 
-cask "java"
-cask "font-meslo-nerd-font"
-cask "font-meslo-nerd-font-mono"
+cask "font-meslo-lg-nerd-font"
 cask "alacritty"
 
 mas "1Password 7", id: 1333542190
