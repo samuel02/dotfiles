@@ -1,7 +1,7 @@
 # random
 alias reload!='. ~/.zshrc'
 alias be='bundle exec'
-alias tmux="TERM=screen-256color tmux"
+alias tmux="tmux -2"
 alias h="clear && cd ~"
 alias ppath='echo $PATH | tr -s ":" "\n"'
 alias dc="docker-compose"
