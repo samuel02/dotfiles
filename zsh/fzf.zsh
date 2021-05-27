@@ -22,15 +22,7 @@ _gen_fzf_default_opts() {
 
   export FZF_DEFAULT_COMMAND="fd --type f \
                                  --hidden \
-                                 --no-ignore \
-                                 --follow \
-                                 --exclude .git \
-                                 --exclude .git-crypt \
-                                 --exclude .gem \
-                                 --exclude node_modules \
-                                 --exclude coverage \
-                                 --exclude .direnv \
-                                 --exclude tmp"
+                                 --follow"
 
   # Solarized Dark color scheme for fzf
   export FZF_DEFAULT_OPTS="

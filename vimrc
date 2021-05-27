@@ -197,19 +197,8 @@ command! -bang -nargs=* Rg
   \       --line-number
   \       --no-heading
   \       --ignore-case
-  \       --no-ignore
   \       --hidden
   \       --follow
-  \       --glob "!.git/*"
-  \       --glob "!.gem/*"
-  \       --glob "!.direnv/*"
-  \       --glob "!node_modules/*"
-  \       --glob "!tmp/*"
-  \       --glob "!coverage/*"
-  \       --glob "!install/*"
-  \       --glob "!log/*"
-  \       --glob "!public/packs/*"
-  \       --glob "!public/packs-test/*"
   \       --color=always ' . <q-args>, 1,
   \   <bang>0 ? fzf#vim#with_preview('up:60%')
   \           : fzf#vim#with_preview('right:50%:hidden', '?'),
