@@ -32,3 +32,6 @@ source ~/.localrc
 
 # direnv
 eval "$(direnv hook zsh)"
+
+# rbenv
+eval "$(rbenv init -)"

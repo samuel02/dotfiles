@@ -27,3 +27,7 @@ alias gl='git pull --prune'
 alias gs='git status -sb'
 alias glg='git lg'
 alias gd='git diff'
+
+# kubernetes
+alias k=kubectl
+complete -F __start_kubectl k

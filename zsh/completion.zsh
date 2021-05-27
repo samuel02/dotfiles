@@ -11,3 +11,5 @@ zstyle ':completion:*' insert-tab pending
 
 [[ $- == *i* ]] && source "/usr/local/opt/fzf/shell/completion.zsh" 2> /dev/null
 fpath=(/usr/local/share/zsh-completions $fpath)
+
+source <(kubectl completion zsh)

@@ -9,7 +9,7 @@
   lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
   pushf = push --force-with-lease
   wip = commit -m 'WIP'
-  diffs = !git diff --staged --color | diff-so-fancy | less --tabs=4 -RX
+  diffs = !git diff --staged --color
   amend = commit --amend
   ammend = commit --amend
 [color]
@@ -17,9 +17,22 @@
   status = auto
   branch = auto
   ui = true
+[color "diff-highlight"]
+	oldHighlight = red bold 52
+	newNormal = green bold
+	newHighlight = green bold 22
+	oldNormal = red bold
+[color "diff"]
+	meta = 11
+	frag = magenta bold
+	commit = yellow bold
+	old = red bold
+	new = green bold
+	whitespace = red reverse
 [core]
   excludesfile = ~/.gitignore
   editor = vim
+  pager = diff-so-fancy | less --tabs=4 -RFX
 [apply]
   whitespace = nowarn
 [mergetool]

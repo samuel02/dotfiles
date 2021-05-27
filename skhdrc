@@ -2,24 +2,20 @@
 cmd - return : open -n /Applications/Alacritty.app
 
 # open browser
-cmd + shift - return : open -n /Applications/Google\ Chrome.app
+cmd + shift - return : open -n /Applications/Safari.app
 
 :: resize @
 cmd + shift - r ; resize
 resize < cmd + shift - r ; default
 
 # increase/decrease region size
-resize < h : yabai -m window --resize left:-20:0 && \
-             yabai -m window --resize right:20:0
-resize < j : yabai -m window --resize bottom:20:0 && \
-             yabai -m window --resize top:-20:0
-resize < k : yabai -m window --resize top:20:0 && \
-             yabai -m window --resize bottom:-20:0
-resize < l : yabai -m window --resize right:-20:0 && \
-             yabai -m window --resize left:20:0
+resize < h : yabai -m window --resize right:-20:0 ; yabai -m window --resize left:-20:0
+resize < j : yabai -m window --resize bottom:0:20 ; yabai -m window --resize top:0:20
+resize < k : yabai -m window --resize top:0:-20 ; yabai -m window --resize bottom:0:-20
+resize < l : yabai -m window --resize right:20:0 ; yabai -m window --resize left:20:0
 
 # window - equalize
-resize < space : yabai -m space --balance
+resize < 0x18 : yabai -m space --balance
 
 # window - fullscreen
 cmd + shift - f : yabai -m window --toggle zoom-fullscreen
@@ -32,8 +28,8 @@ cmd + shift - l : yabai -m window --warp east
 
 # window - focus
 cmd - h : yabai -m window --focus west
-cmd - j : yabai -m window --focus south
-cmd - k : yabai -m window --focus north
+cmd - j : yabai -m window --focus south ; yabai -m window --focus stack.prev
+cmd - k : yabai -m window --focus north ; yabai -m window --focus stack.next
 cmd - l : yabai -m window --focus east
 
 # desktop - destroy
@@ -49,6 +45,11 @@ cmd + shift - n : yabai -m space --create && \
                   yabai -m window --space "${index}" && \
                   yabai -m space --focus "${index}"
 
+# create desktop and follow focus - uses jq for parsing json (brew install jq)
+cmd + alt - n : yabai -m space --create && \
+                index="$(yabai -m query --spaces --display | jq 'map(select(."native-fullscreen" == 0))[-1].index')" && \
+                yabai -m space --focus "${index}"
+
 # desktop - send window to desktop and follow focus
 cmd + shift - 1 : yabai -m window --space 1; yabai -m space --focus 1
 cmd + shift - 2 : yabai -m window --space 2; yabai -m space --focus 2
@@ -60,7 +61,7 @@ cmd - up : yabai -m space --mirror y-axis
 cmd - down : yabai -m space --mirror x-axis
 
 # desktop - rotate tree
-cmd - p : yabai -m space --rotate 90
+# cmd - p : yabai -m space --rotate 91
 
 # monitor - focus
 cmd + alt - 1 : yabai -m display --focus 1
@@ -75,5 +76,4 @@ cmd + shift + alt - 2 : yabai -m window --display 2; yabai -m display --focus 2
 cmd + shift + alt - 3 : yabai -m window --display 3; yabai -m display --focus 3
 
 # float / unfloat window and center on screen
-alt - t : yabai -m window --toggle float;\
-          yabai -m window --grid 4:4:1:1:2:2
+alt - t : yabai -m window --toggle float && yabai -m window --grid 4:4:1:1:2:2
