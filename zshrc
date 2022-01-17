@@ -41,5 +41,3 @@ eval "$(direnv hook zsh)"
 
 # rbenv
 eval "$(rbenv init -)"
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

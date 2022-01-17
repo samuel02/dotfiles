@@ -308,3 +308,18 @@ let g:surround_{char2nr("#")} = "#{\r}"
 
 " call SetBackgroundMode()
 " call timer_start(3000, "SetBackgroundMode", {"repeat": -1})
+let g:fzf_colors =
+\ { 'fg':         ['fg', 'Normal'],
+  \ 'bg':         ['bg', 'Normal'],
+  \ 'preview-bg': ['bg', 'NormalFloat'],
+  \ 'hl':         ['fg', 'Comment'],
+  \ 'fg+':        ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+  \ 'bg+':        ['bg', 'CursorLine', 'CursorColumn'],
+  \ 'hl+':        ['fg', 'Statement'],
+  \ 'info':       ['fg', 'PreProc'],
+  \ 'border':     ['fg', 'Ignore'],
+  \ 'prompt':     ['fg', 'Conditional'],
+  \ 'pointer':    ['fg', 'Exception'],
+  \ 'marker':     ['fg', 'Keyword'],
+  \ 'spinner':    ['fg', 'Label'],
+  \ 'header':     ['fg', 'Comment'] }

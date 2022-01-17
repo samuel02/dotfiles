@@ -79,6 +79,7 @@ call plug#begin(expand('~/.vim/bundle'))
   Plug 'vim-scripts/scons.vim'
   Plug 'vim-test/vim-test'
   Plug 'wincent/terminus'
+  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 call plug#end()
 
 "" Appearance
@@ -209,3 +210,19 @@ nnoremap <silent> S :<C-U>call <SID>try("SplitjoinSplit", "S")<CR>
 
 "" surround.vim
 let g:surround_{char2nr("#")} = "#{\r}"
+
+let g:fzf_colors =
+\ { 'fg':         ['fg', 'Normal'],
+  \ 'bg':         ['bg', 'Normal'],
+  \ 'preview-bg': ['bg', 'NormalFloat'],
+  \ 'hl':         ['fg', 'Comment'],
+  \ 'fg+':        ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+  \ 'bg+':        ['bg', 'CursorLine', 'CursorColumn'],
+  \ 'hl+':        ['fg', 'Statement'],
+  \ 'info':       ['fg', 'PreProc'],
+  \ 'border':     ['fg', 'Ignore'],
+  \ 'prompt':     ['fg', 'Conditional'],
+  \ 'pointer':    ['fg', 'Exception'],
+  \ 'marker':     ['fg', 'Keyword'],
+  \ 'spinner':    ['fg', 'Label'],
+  \ 'header':     ['fg', 'Comment'] }
