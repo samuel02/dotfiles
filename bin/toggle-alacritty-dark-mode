@@ -1,0 +1,11 @@
+#!/usr/bin/env sh
+
+config_path="$HOME/.config/alacritty/colors.yml"
+dark_theme_name="onehalf_dark"
+light_theme_name="onehalf_light"
+
+if grep -q "^colors: \*$dark_theme_name$" "$config_path"; then
+  sed -i "" -e "s#^colors: \*.*#colors: *$light_theme_name#g" "$(realpath "$config_path")"
+else
+  sed -i "" -e "s#^colors: \*.*#colors: *$dark_theme_name#g" "$(realpath "$config_path")"
+fi

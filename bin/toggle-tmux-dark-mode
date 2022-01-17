@@ -1,0 +1,9 @@
+#!/usr/bin/env sh
+
+if [ "$(tmux show-environment -g | grep TMUX_THEME)" = 'TMUX_THEME=dark' ]; then
+    tmux set-environment -g TMUX_THEME light
+    tmux source "$HOME/.tmux/light-theme.conf"
+else
+    tmux set-environment -g TMUX_THEME dark
+    tmux source "$HOME/.tmux/dark-theme.conf"
+fi

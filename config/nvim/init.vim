@@ -1,20 +1,6 @@
-"" Encoding
-set encoding=utf-8
-set fileencoding=utf-8
-set fileencodings=utf-8
-set nobomb
-
-"" Enable hidden buffers
-set hidden
-
 "" Searching
-set incsearch
 set ignorecase
 set smartcase
-set hlsearch
-
-"" Backup and swap
-set backupskip=/tmp/*,/private/tmp/*
 
 "" Copy/Paste/Cut
 set clipboard=unnamed,unnamedplus
@@ -24,40 +10,15 @@ set splitright
 set splitbelow
 
 "" Indentation
-set backspace=indent,eol,start
 set shiftround
-set autoindent
 
-"" Automatically reload and write file
-set autoread
+"" Automatically write file
 set autowrite
 
-"" Wildmode
+"" Completion
 set wildmode=list:longest,list:full
 set wildignore+=*.o,*.obj,.git,*.rbc,*.pyc,__pycache__
-
-"" Completion
 set complete+=kspell
-set complete-=i
-set wildmode=list,full
-
-if !isdirectory(expand(&undodir))
-  call mkdir(expand(&undodir), 'p')
-endif
-
-" Enforce italics
-let &t_ZH="\e[3m"
-let &t_ZR="\e[23m"
-
-" Set different cursors for insert, replace, and normal mode.
-let &t_SI = "\e[6 q"
-let &t_SR = "\e[4 q"
-let &t_EI = "\e[2 q"
-
-" When the type of shell script is /bin/sh, assume a POSIX-compatible shell for
-" syntax highlighting purposes.
-" More on why: https://github.com/thoughtbot/dotfiles/pull/471
-let g:is_posix = 1
 
 "" Tags
 set tags^=./.git/tags;tags
@@ -65,43 +26,44 @@ set tags^=./.git/tags;tags
 "" Mouse
 set mouse=a
 set mousemodel=popup
-set guioptions=egmrti
-set guifont=MesloLGLDZ\ Nerd\ Font:h11
 
-if executable('rg')
-  set grepprg=rg\
-        \ --hidden\
-        \ --glob\ '!.git'\
-        \ --glob\ '!tags'\
-        \ --vimgrep\
-        \ --with-filename
-  set grepformat=%f:%l:%c:%m
-else
-  set grepprg=grep\ -rnH\ --exclude-dir\ .git\ $*\ /dev/null
-endif
+set grepprg=rg\
+      \ --hidden\
+      \ --glob\ '!.git'\
+      \ --glob\ '!tags'\
+      \ --vimgrep\
+      \ --with-filename
+set grepformat=%f:%l:%c:%m
 
 "" Load plugins
 filetype plugin indent on
 
 call plug#begin(expand('~/.vim/bundle'))
-  Plug 'edkolev/tmuxline.vim'
-  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-  Plug 'sonph/onehalf', { 'rtp': 'vim' }
   Plug 'AndrewRadev/splitjoin.vim'
   Plug 'airblade/vim-gitgutter'
+  Plug 'chentau/marks.nvim'
   Plug 'christoomey/vim-tmux-navigator'
   Plug 'dense-analysis/ale'
-  Plug 'direnv/direnv.vim'
+  Plug 'edkolev/tmuxline.vim'
+  Plug 'folke/which-key.nvim'
+  Plug 'gennaro-tedesco/nvim-peekup'
   Plug 'haya14busa/incsearch.vim'
   Plug 'junegunn/fzf.vim'
+  Plug 'kyazdani42/nvim-web-devicons'
   Plug 'machakann/vim-highlightedyank'
+  Plug 'ms-jpq/coq.artifacts', {'branch': 'artifacts'}
+  Plug 'ms-jpq/coq_nvim', {'branch': 'coq'}
+  Plug 'neovim/nvim-lspconfig'
+  Plug 'nvim-lua/plenary.nvim'
+  Plug 'nvim-telescope/telescope.nvim'
+  Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
   Plug 'qpkorr/vim-bufkill'
   Plug 'raimondi/delimitmate'
-  Plug 'rakr/vim-one'
   Plug 'ryanoasis/vim-devicons'
   Plug 'schickling/vim-bufonly'
   Plug 'scrooloose/nerdtree'
   Plug 'sheerun/vim-polyglot'
+  Plug 'sonph/onehalf', { 'rtp': 'vim' }
   Plug 'tmux-plugins/vim-tmux'
   Plug 'tpope/vim-abolish'
   Plug 'tpope/vim-commentary'
@@ -118,8 +80,6 @@ call plug#begin(expand('~/.vim/bundle'))
   Plug 'vim-test/vim-test'
   Plug 'wincent/terminus'
 call plug#end()
-
-runtime macros/matchit.vim
 
 "" Appearance
 set display=lastline " display as much as possible of last line
@@ -143,7 +103,6 @@ set ttimeout
 set ttimeoutlen=50
 set breakindent
 set showbreak=\ +
-
 
 "" Map leader to ,
 let mapleader=','
@@ -174,48 +133,14 @@ map #  <Plug>(incsearch-nohl-#)
 map g* <Plug>(incsearch-nohl-g*)
 map g# <Plug>(incsearch-nohl-g#)
 
-
 "" airline
 let g:airline_theme = 'onehalflight'
 let g:airline#extensions#ale#enabled = 1
 
-"" fzf
-let g:fzf_layout = { 'down': '~20%' }
-let g:fzf_buffers_jump = 1
-
-noremap <leader>e :Files<CR>
-noremap <leader>b :Buffers<CR>
-noremap <leader>t :BTags<CR>
-noremap <leader>f :Rg <C-R><C-W><CR>
-
-command! -bang -nargs=* Rg
-  \ call fzf#vim#grep(
-  \   'rg --column
-  \       --line-number
-  \       --no-heading
-  \       --ignore-case
-  \       --hidden
-  \       --follow
-  \       --color=always ' . <q-args>, 1,
-  \   <bang>0 ? fzf#vim#with_preview('up:60%')
-  \           : fzf#vim#with_preview('right:50%:hidden', '?'),
-  \   <bang>0)
-
-augroup FZF
-  autocmd!
-
-  autocmd FileType help
-        \ if executable("fzf") |
-        \   nnoremap <buffer> <Space>] :FZFHelptags<CR> |
-        \ else |
-        \   nnoremap <buffer> <Space>] :tag<Space> |
-        \ endif
-  autocmd FileType fzf
-        \ set laststatus=0 noshowmode noruler
-        \ |
-        \ autocmd BufLeave <buffer> set laststatus=2 showmode ruler
-augroup END
-
+nnoremap <leader>e <cmd>Telescope find_files<cr>
+nnoremap <leader>b <cmd>Telescope buffers<cr>
+nnoremap <leader>f <cmd>Telescope live_grep<cr>
+nnoremap <leader>t <cmd>Telescope help_tags<cr>
 
 "" NERDTree
 let g:NERDTreeChDirMode=2
@@ -284,27 +209,3 @@ nnoremap <silent> S :<C-U>call <SID>try("SplitjoinSplit", "S")<CR>
 
 "" surround.vim
 let g:surround_{char2nr("#")} = "#{\r}"
-
-" function! SetBackgroundMode(...)
-"     let uname = system('uname -a')
-"     let mode = "light"
-
-"     if uname =~ "Darwin"
-"         let mode = systemlist("defaults read -g AppleInterfaceStyle")[0]
-"     else
-"         let mode = "dark"
-"     endif
-
-"     if mode ==? "dark"
-"         silent colorscheme "onehalfdark"
-"         let &background = "dark"
-"         let g:airline_theme = "onehalfdark"
-"     else
-"         silent colorscheme "onehalflight"
-"         let &background = "light"
-"         let g:airline_theme = "onehalflight"
-"     endif
-" endfunction
-
-" call SetBackgroundMode()
-" call timer_start(3000, "SetBackgroundMode", {"repeat": -1})

@@ -53,5 +53,13 @@ else
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim | indent
 fi
 
+if [ -e "$HOME"/.local/share/nvim/site/autoload/plug.vim ]; then
+  nvim -E -s +PlugUpgrade +qa
+else
+  curl -fLo "$HOME"/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim | indent
+fi
+
 info "install vim plugins"
 vim +PlugUpdate +PlugClean! +qa
+nvim +PlugUpdate +PlugClean! +qa

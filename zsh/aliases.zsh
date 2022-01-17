@@ -30,4 +30,4 @@ alias gd='git diff'
 
 # kubernetes
 alias k=kubectl
-complete -F __start_kubectl k
+# complete -F __start_kubectl k

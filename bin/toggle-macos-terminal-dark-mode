@@ -1,0 +1,28 @@
+#!/usr/bin/env sh
+
+MACOS_TERMINAL_DARK_THEME='OneHalfDark'
+MACOS_TERMINAL_LIGHT_THEME='OneHalfLight'
+
+current_theme=$(
+  osascript <<END
+    tell application "Terminal"
+      return name of current settings of first window
+    end tell
+END
+)
+
+if [ "$current_theme" = "$MACOS_TERMINAL_DARK_THEME" ]; then
+  new_theme="$MACOS_TERMINAL_LIGHT_THEME"
+else
+  new_theme="$MACOS_TERMINAL_DARK_THEME"
+fi
+
+osascript <<END
+  tell application "Terminal"
+      set default settings to settings set "$new_theme"
+  end tell
+
+  tell application "Terminal"
+      set current settings of tabs of windows to settings set "$new_theme"
+  end tell
+END

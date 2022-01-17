@@ -1,0 +1,84 @@
+#!/usr/bin/env python3
+
+import subprocess
+
+MACOS_TERMINAL_DARK_THEME = 'OneHalfDark'
+MACOS_TERMINAL_LIGHT_THEME = 'OneHalfLight'
+ALACRITTY_DARK_THEME = 'onehalf_dark'
+ALACRITTY_LIGHT_THEME = 'onehalf_light'
+
+def is_dark_mode() -> bool:
+    """Return the current Dark Mode status."""
+    result = subprocess.run(['is-dark-mode'], text=True, capture_output=True)
+    return result.returncode == 0
+
+
+def set_macos_terminal_theme(theme: str):
+    """Enable/disable dark mode in Terminal.app."""
+    osascript = """
+        tell application "Terminal"
+            set default settings to settings set "{theme}"
+        end tell
+
+        tell application "Terminal"
+            set current settings of tabs of windows to settings set "{theme}"
+        end tell
+    """
+
+    script = osascript.format(theme=theme)
+    result = subprocess.run(['osascript', '-e', script], text=True, capture_output=True)
+    assert result.returncode == 0, result
+
+def set_alacritty_theme(theme: str):
+    # set -l config_path (realpath ~/.config/alacritty/color.yml)
+    # sed -i "" -e "s#^colors: \*.*#colors: *$theme#g" $config_path
+    realpath = subprocess.run(
+        ['realpath', '~/.config/alacritty/colors.yml'],
+        text=True,
+        capture_output=True
+    )
+
+    result = subprocess.run(
+        [
+            'sed',
+            '-i',
+            '""',
+            '-e',
+            's#^colors: \*.*#colors: *{theme}#g'.format(theme=theme),
+            realpath.stdout
+        ],
+        text=True,
+        capture_output=True
+    )
+
+    assert result.returncode == 0, result
+
+
+# def set_vim_theme(theme: str):
+
+def set_tmux_theme(theme: str):
+    """Set tmux theme colors"""
+    result = subprocess.run(
+        ['tmux', 'source-file', '$HOME/.tmux/{theme}-theme.conf'.format(theme=theme)],
+        text=True,
+        capture_output=True
+    )
+
+    assert result.returncode == 0, result
+
+if __name__ == '__main__':
+    if is_dark_mode():
+        print("dark mode")
+        # if is_macos():
+        set_macos_terminal_theme(MACOS_TERMINAL_DARK_THEME)
+
+        set_alacritty_theme(ALACRITTY_DARK_THEME)
+        # set_vim_theme(DARK_THEME)
+        set_tmux_theme('dark')
+    else:
+        # if is_macos():
+        set_macos_terminal_theme(MACOS_TERMINAL_LIGHT_THEME)
+
+        set_alacritty_theme(ALACRITTY_LIGHT_THEME)
+        # set_vim_theme(LIGHT_THEME)
+        set_tmux_theme('light')

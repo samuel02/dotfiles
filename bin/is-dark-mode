@@ -1,0 +1,11 @@
+#!/usr/bin/env sh
+
+if [ "$(uname)" = "Darwin" ]; then
+  if [ "$(defaults read -g AppleInterfaceStyle)" = "Dark" ]; then
+    exit 0
+  else
+    exit 1
+  fi
+else
+  exit 2
+fi
