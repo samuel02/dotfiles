@@ -23,7 +23,7 @@ if [ "$(uname)" = "Darwin" ]; then
 fi
 
 # Install FZF
-if test ! "$(command -v brew)"; then
+if test ! "$(command -v fzf)"; then
   echo "› installing FZF"
   git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
   ~/.fzf/install
@@ -54,13 +54,6 @@ done
 
 # Install vim plugins
 info "install vim-plug"
-if [ -e "$HOME"/.vim/autoload/plug.vim ]; then
-  vim -E -s +PlugUpgrade +qa
-else
-  curl -fLo "$HOME"/.vim/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim | indent
-fi
-
 if [ -e "$HOME"/.local/share/nvim/site/autoload/plug.vim ]; then
   nvim -E -s +PlugUpgrade +qa
 else
@@ -69,5 +62,4 @@ else
 fi
 
 info "install vim plugins"
-vim +PlugUpdate +PlugClean! +qa
 nvim +PlugUpdate +PlugClean! +qa
