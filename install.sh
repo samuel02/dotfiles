@@ -22,6 +22,14 @@ if [ "$(uname)" = "Darwin" ]; then
   brew bundle | indent
 fi
 
+# Install FZF
+if test ! "$(command -v brew)"; then
+  echo "› installing FZF"
+  git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+  ~/.fzf/install
+fi
+
+
 # Set shell
 # If this user's login shell is not already "zsh", attempt to switch.
 test_current_shell=$(expr "$SHELL" : '.*/\(.*\)')

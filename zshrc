@@ -1,4 +1,14 @@
-# shortcut to this dotfiles path is $ZSH
+source ~/.zsh/antigen.zsh
+
+antigen use oh-my-zsh
+
+antigen bundle zsh-users/zsh-syntax-highlighting
+antigen bundle zsh-users/zsh-completions
+antigen bundle zsh-users/zsh-autosuggestions
+antigen bundle zsh-users/zsh-history-substring-search
+
+antigen apply
+
 export DOTFILES=$HOME/.dotfiles
 
 # load custom executable functions
@@ -13,10 +23,6 @@ source $DOTFILES/zsh/fzf.zsh
 source $DOTFILES/zsh/prompt.zsh
 source $DOTFILES/zsh/completion.zsh
 source $DOTFILES/zsh/path.zsh
-
-source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /opt/homebrew/share/zsh-history-substring-search/zsh-history-substring-search.zsh
 
 # setup colors
 source $DOTFILES/zsh/colors.zsh
@@ -35,3 +41,5 @@ eval "$(direnv hook zsh)"
 
 # rbenv
 eval "$(rbenv init -)"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

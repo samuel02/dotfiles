@@ -20,7 +20,6 @@ brew "fasd"
 brew "fd"
 brew "fontforge"
 brew "fswatch"
-brew "fzf"
 brew "gdbm"
 brew "git"
 brew "gnupg", link: false
