@@ -1,53 +1,16 @@
-"" Searching
-set ignorecase
-set smartcase
 
-"" Copy/Paste/Cut
-set clipboard=unnamed,unnamedplus
-
-"" Splitting
-set splitright
-set splitbelow
-
-"" Indentation
-set shiftround
-
-"" Automatically write file
-set autowrite
-
-"" Completion
-set wildmode=list:longest,list:full
-set wildignore+=*.o,*.obj,.git,*.rbc,*.pyc,__pycache__
-set complete+=kspell
-
-"" Tags
-set tags^=./.git/tags;tags
-
-"" Mouse
-set mouse=a
-set mousemodel=popup
-
-set grepprg=rg\
-      \ --hidden\
-      \ --glob\ '!.git'\
-      \ --glob\ '!tags'\
-      \ --vimgrep\
-      \ --with-filename
-set grepformat=%f:%l:%c:%m
-
-"" Load plugins
 filetype plugin indent on
-
 call plug#begin(expand('~/.vim/bundle'))
+  " Plug 'edkolev/tmuxline.vim'
   Plug 'AndrewRadev/splitjoin.vim'
   Plug 'airblade/vim-gitgutter'
   Plug 'chentau/marks.nvim'
   Plug 'christoomey/vim-tmux-navigator'
   Plug 'dense-analysis/ale'
-  Plug 'edkolev/tmuxline.vim'
   Plug 'folke/which-key.nvim'
   Plug 'gennaro-tedesco/nvim-peekup'
   Plug 'haya14busa/incsearch.vim'
+  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'
   Plug 'kyazdani42/nvim-web-devicons'
   Plug 'machakann/vim-highlightedyank'
@@ -79,43 +42,77 @@ call plug#begin(expand('~/.vim/bundle'))
   Plug 'vim-scripts/scons.vim'
   Plug 'vim-test/vim-test'
   Plug 'wincent/terminus'
-  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+  Plug 'junegunn/vim-slash'
+  Plug 'junegunn/vim-peekaboo'
+  Plug 'junegunn/vim-journal'
+  Plug 'junegunn/rainbow_parentheses.vim'
+  Plug 'tpope/vim-endwise'
+  Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
+  Plug 'AndrewRadev/switch.vim'
+  Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
+  Plug 'octol/vim-cpp-enhanced-highlight'
 call plug#end()
 
-"" Appearance
-set display=lastline " display as much as possible of last line
-set laststatus=2 " always display statusline
-set signcolumn=yes " always show signcolumns
-set showcmd " Show (partial) command in the last line of the screen
+set ignorecase
+set smartcase
+set clipboard=unnamed,unnamedplus
+set splitright
+set splitbelow
+set shiftround
+set autowrite
+set autoread
+set wildmode=list:longest,list:full
+set wildignore+=*.o,*.obj,.git,*.rbc,*.pyc,__pycache__
+set complete+=kspell
+set tags^=./.git/tags;tags
+set mouse=a
+set mousemodel=popup
+set grepprg=rg\
+            \ --hidden\
+            \ --glob\ '!.git'\
+            \ --glob\ '!tags'\
+            \ --vimgrep\
+            \ --with-filename
+set grepformat=%f:%l:%c:%m
+set nojoinspaces
 set lazyredraw
+set laststatus=2 " always display statusline
 set list
 set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
-set t_Co=256
 set expandtab
-syntax enable
-set ruler
 set number
-set numberwidth=5
 set colorcolumn=100
 set shortmess=aoOtsT
 colorscheme onehalflight
 set background=light
-set ttimeout
 set ttimeoutlen=50
 set breakindent
 set showbreak=\ +
+set backupdir=/tmp//,.
+set directory=/tmp//,.
+
+" Semi-persistent undo
+if has('persistent_undo')
+  set undodir=/tmp,.
+  set undofile
+endif
+
+if has('termguicolors')
+  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+  set termguicolors
+endif
 
 "" Map leader to ,
 let mapleader=','
+
+"" Reload config
+nnoremap <silent> <Leader><Leader> :source $MYVIMRC<cr>
 
 "" Split
 set splitright
 noremap <leader>h :<C-u>split<CR>
 noremap <leader>v :<C-u>vsplit<CR>
-
-"" pbcopy for OSX copy/paste
-vmap <C-x> :!pbcopy<CR>
-vmap <C-c> :w !pbcopy<CR><CR>
 
 "" Buffer nav
 noremap <leader>q :bp<CR>
@@ -137,11 +134,13 @@ map g# <Plug>(incsearch-nohl-g#)
 "" airline
 let g:airline_theme = 'onehalflight'
 let g:airline#extensions#ale#enabled = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#whitespace#enabled = 1
 
 nnoremap <leader>e <cmd>Telescope find_files<cr>
 nnoremap <leader>b <cmd>Telescope buffers<cr>
 nnoremap <leader>f <cmd>Telescope live_grep<cr>
-nnoremap <leader>t <cmd>Telescope help_tags<cr>
+nnoremap <leader>t <cmd>Telescope tags<cr>
 
 "" NERDTree
 let g:NERDTreeChDirMode=2
@@ -211,6 +210,7 @@ nnoremap <silent> S :<C-U>call <SID>try("SplitjoinSplit", "S")<CR>
 "" surround.vim
 let g:surround_{char2nr("#")} = "#{\r}"
 
+"" fzf.vim
 let g:fzf_colors =
 \ { 'fg':         ['fg', 'Normal'],
   \ 'bg':         ['bg', 'Normal'],
@@ -226,3 +226,20 @@ let g:fzf_colors =
   \ 'marker':     ['fg', 'Keyword'],
   \ 'spinner':    ['fg', 'Label'],
   \ 'header':     ['fg', 'Comment'] }
+
+"" Undotree
+let g:undotree_WindowLayout = 2
+nnoremap U :UndotreeToggle<CR>)
+
+"" switch
+let g:switch_mapping = '-'
+
+"" tagbar
+let g:tagbar_sort = 0
+
+augroup vimrc_help
+  autocmd!
+  autocmd BufEnter *.txt if &buftype == 'help' | wincmd L | endif
+augroup END
+
+

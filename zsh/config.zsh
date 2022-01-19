@@ -24,7 +24,9 @@ setopt HIST_REDUCE_BLANKS
 
 # don't expand aliases _before_ completion has finished
 #   like: git comm-[tab]
-setopt complete_aliases
+setopt COMPLETE_ALIASES
+
+setopt AUTO_CD
 
 # Updates editor information when the keymap changes.
 function zle-keymap-select() {
@@ -38,11 +40,12 @@ TRAPWINCH() {
 }
 
 zle -N zle-keymap-select
-zle -N edit-command-line
+# zle -N edit-command-line
 
-bindkey -v
+# bindkey -v
 
 # allow v to edit the command line (standard behaviour)
-autoload -Uz edit-command-line
-bindkey -M vicmd 'v' edit-command-line
+# autoload -Uz edit-command-line
+# bindkey -M vicmd 'v' edit-command-line
 
+ZVM_LINE_INIT_MODE=$ZVM_MODE_NORMAL

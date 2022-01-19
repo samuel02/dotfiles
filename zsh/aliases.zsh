@@ -11,10 +11,8 @@ alias z='fasd_cd -d' # cd, same functionality as j in autojump
 
 # colors
 if [[ "$(uname)" = "Darwin" ]]; then
-  eval $(gdircolors ~/.dircolors)
   alias ls="gls -F --color"
 else
-  eval $(dircolors ~/.dircolors)
   alias ls="ls -F --color"
 fi
 
