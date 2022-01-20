@@ -3,6 +3,7 @@ filetype plugin indent on
 call plug#begin(expand('~/.vim/bundle'))
   " Plug 'edkolev/tmuxline.vim'
   Plug 'AndrewRadev/splitjoin.vim'
+  Plug 'AndrewRadev/switch.vim'
   Plug 'airblade/vim-gitgutter'
   Plug 'chentau/marks.nvim'
   Plug 'christoomey/vim-tmux-navigator'
@@ -12,14 +13,21 @@ call plug#begin(expand('~/.vim/bundle'))
   Plug 'haya14busa/incsearch.vim'
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'
+  Plug 'junegunn/rainbow_parentheses.vim'
+  Plug 'junegunn/vim-journal'
+  Plug 'junegunn/vim-peekaboo'
+  Plug 'junegunn/vim-slash'
   Plug 'kyazdani42/nvim-web-devicons'
   Plug 'machakann/vim-highlightedyank'
+  Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
+  Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
   Plug 'ms-jpq/coq.artifacts', {'branch': 'artifacts'}
   Plug 'ms-jpq/coq_nvim', {'branch': 'coq'}
   Plug 'neovim/nvim-lspconfig'
   Plug 'nvim-lua/plenary.nvim'
   Plug 'nvim-telescope/telescope.nvim'
   Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+  Plug 'octol/vim-cpp-enhanced-highlight'
   Plug 'qpkorr/vim-bufkill'
   Plug 'raimondi/delimitmate'
   Plug 'ryanoasis/vim-devicons'
@@ -31,6 +39,7 @@ call plug#begin(expand('~/.vim/bundle'))
   Plug 'tpope/vim-abolish'
   Plug 'tpope/vim-commentary'
   Plug 'tpope/vim-dispatch'
+  Plug 'tpope/vim-endwise'
   Plug 'tpope/vim-fugitive'
   Plug 'tpope/vim-rails'
   Plug 'tpope/vim-repeat'
@@ -42,15 +51,6 @@ call plug#begin(expand('~/.vim/bundle'))
   Plug 'vim-scripts/scons.vim'
   Plug 'vim-test/vim-test'
   Plug 'wincent/terminus'
-  Plug 'junegunn/vim-slash'
-  Plug 'junegunn/vim-peekaboo'
-  Plug 'junegunn/vim-journal'
-  Plug 'junegunn/rainbow_parentheses.vim'
-  Plug 'tpope/vim-endwise'
-  Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
-  Plug 'AndrewRadev/switch.vim'
-  Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
-  Plug 'octol/vim-cpp-enhanced-highlight'
 call plug#end()
 
 set ignorecase
@@ -241,5 +241,3 @@ augroup vimrc_help
   autocmd!
   autocmd BufEnter *.txt if &buftype == 'help' | wincmd L | endif
 augroup END
-
-
