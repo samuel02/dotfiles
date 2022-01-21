@@ -48,4 +48,4 @@ zle -N zle-keymap-select
 # autoload -Uz edit-command-line
 # bindkey -M vicmd 'v' edit-command-line
 
-ZVM_LINE_INIT_MODE=$ZVM_MODE_NORMAL
+# ZVM_LINE_INIT_MODE=$ZVM_MODE_NORMAL

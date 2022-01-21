@@ -1,7 +1,52 @@
+set ignorecase
+set smartcase
+set clipboard=unnamed,unnamedplus
+set splitright
+set splitbelow
+set shiftround
+set autowrite
+set autoread
+set wildmode=list:longest,list:full
+set wildignore+=*.o,*.obj,.git,*.rbc,*.pyc,__pycache__
+set complete+=kspell
+set tags^=./.git/tags;tags
+set mouse=a
+set mousemodel=popup
+set grepprg=rg\
+            \ --hidden\
+            \ --glob\ '!.git'\
+            \ --glob\ '!tags'\
+            \ --vimgrep\
+            \ --with-filename
+set grepformat=%f:%l:%c:%m
+set nojoinspaces
+set lazyredraw
+set laststatus=2 " always display statusline
+set list
+set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
+set expandtab
+set number
+set colorcolumn=100
+set shortmess=aoOtsT
+set ttimeoutlen=50
+set breakindent
+set showbreak=\ +
+set backupdir=/tmp//,.
+set directory=/tmp//,.
+set noswapfile
+" Semi-persistent undo
+if has('persistent_undo')
+  set undodir=/tmp,.
+  set undofile
+endif
+
+"" Map leader to ,
+let mapleader=','
 
 filetype plugin indent on
+
 call plug#begin(expand('~/.vim/bundle'))
-  " Plug 'edkolev/tmuxline.vim'
+  Plug 'edkolev/tmuxline.vim'
   Plug 'AndrewRadev/splitjoin.vim'
   Plug 'AndrewRadev/switch.vim'
   Plug 'airblade/vim-gitgutter'
@@ -53,58 +98,16 @@ call plug#begin(expand('~/.vim/bundle'))
   Plug 'wincent/terminus'
 call plug#end()
 
-set ignorecase
-set smartcase
-set clipboard=unnamed,unnamedplus
-set splitright
-set splitbelow
-set shiftround
-set autowrite
-set autoread
-set wildmode=list:longest,list:full
-set wildignore+=*.o,*.obj,.git,*.rbc,*.pyc,__pycache__
-set complete+=kspell
-set tags^=./.git/tags;tags
-set mouse=a
-set mousemodel=popup
-set grepprg=rg\
-            \ --hidden\
-            \ --glob\ '!.git'\
-            \ --glob\ '!tags'\
-            \ --vimgrep\
-            \ --with-filename
-set grepformat=%f:%l:%c:%m
-set nojoinspaces
-set lazyredraw
-set laststatus=2 " always display statusline
-set list
-set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
-set expandtab
-set number
-set colorcolumn=100
-set shortmess=aoOtsT
-colorscheme onehalflight
-set background=light
-set ttimeoutlen=50
-set breakindent
-set showbreak=\ +
-set backupdir=/tmp//,.
-set directory=/tmp//,.
 
-" Semi-persistent undo
-if has('persistent_undo')
-  set undodir=/tmp,.
-  set undofile
-endif
+set t_Co=256
+colorscheme onehalfdark
+set background=dark
 
-if has('termguicolors')
+if exists('+termguicolors')
   let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
   let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
   set termguicolors
 endif
-
-"" Map leader to ,
-let mapleader=','
 
 "" Reload config
 nnoremap <silent> <Leader><Leader> :source $MYVIMRC<cr>
@@ -132,7 +135,7 @@ map g* <Plug>(incsearch-nohl-g*)
 map g# <Plug>(incsearch-nohl-g#)
 
 "" airline
-let g:airline_theme = 'onehalflight'
+let g:airline_theme = 'onehalfdark'
 let g:airline#extensions#ale#enabled = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#whitespace#enabled = 1
@@ -169,20 +172,20 @@ let g:ale_fixers_explicit = 1
 
 let g:ale_linters = {
 \   'javascript': ['eslint', 'tsserver'],
-\   'ruby': ['standard'],
+\   'ruby': ['standardrb'],
 \   'sh': ['shellcheck'],
 \   'vim': ['vint'],
 \}
 
 let g:ale_fixers = {
-\   '*': ['trim_whitespace'],
+\   '*': ['remove_trailing_lines', 'trim_whitespace'],
 \   'javascript': ['eslint'],
-\   'ruby': ['standard'],
+\   'ruby': ['standardrb'],
 \   'json': ['jq'],
 \}
 
-nmap <silent> <C-k> <Plug>(ale_previous_wrap)
-nmap <silent> <C-j> <Plug>(ale_next_wrap)
+nmap <silent> [a <Plug>(ale_previous_wrap)
+nmap <silent> ]a <Plug>(ale_next_wrap)
 
 "" splitjoin.vim
 let g:splitjoin_trailing_comma = 1
@@ -226,6 +229,9 @@ let g:fzf_colors =
   \ 'marker':     ['fg', 'Keyword'],
   \ 'spinner':    ['fg', 'Label'],
   \ 'header':     ['fg', 'Comment'] }
+
+"" tmuxline
+let g:tmuxline_powerline_separators = 0
 
 "" Undotree
 let g:undotree_WindowLayout = 2

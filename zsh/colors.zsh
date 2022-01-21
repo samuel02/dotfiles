@@ -4,28 +4,20 @@ export CLICOLOR=true
 
 export GREP_COLOR='4;31'
 
-export MANROFFOPT='-c'
-export LESS_TERMCAP_mb=$(tput bold; tput setaf 2)
-export LESS_TERMCAP_md=$(tput bold; tput setaf 6)
-export LESS_TERMCAP_me=$(tput sgr0)
-export LESS_TERMCAP_so=$(tput setaf 7; tput setab 11)
-export LESS_TERMCAP_se=$(tput rmso; tput sgr0)
-export LESS_TERMCAP_us=$(tput smul; tput bold; tput setaf 7)
-export LESS_TERMCAP_ue=$(tput rmul; tput sgr0)
-export LESS_TERMCAP_mr=$(tput rev)
-export LESS_TERMCAP_mh=$(tput dim)
-
-PYGMENTIZE_THEME="solarized256"
-
-_pygmentize_theme(){
-  if (( $+commands[pygmentize] )); then
-    export LESSOPEN="|pygmentize -f 256 -O style=$PYGMENTIZE_THEME -g %s"
-    alias pygmentize="pygmentize -O style=$PYGMENTIZE_THEME"
-  fi
-  precmd_functions=(${precmd_functions#_pygmentize_theme})
-}
-
-precmd_functions+=( _pygmentize_theme )
+# export MANROFFOPT='-c'
+# export LESS_TERMCAP_mb=$(tput bold; tput setaf 2) # green
+# export LESS_TERMCAP_md=$(tput bold; tput setaf 6) # cyan
+# export LESS_TERMCAP_me=$(tput sgr0)
+# export LESS_TERMCAP_so=$(tput bold; tput setaf 3; tput setab 4) # yellow on blue
+# export LESS_TERMCAP_se=$(tput rmso; tput sgr0)
+# export LESS_TERMCAP_us=$(tput smul; tput bold; tput setaf 7) # white
+# export LESS_TERMCAP_ue=$(tput rmul; tput sgr0)
+# export LESS_TERMCAP_mr=$(tput rev)
+# export LESS_TERMCAP_mh=$(tput dim)
+# export LESS_TERMCAP_ZN=$(tput ssubm)
+# export LESS_TERMCAP_ZV=$(tput rsubm)
+# export LESS_TERMCAP_ZO=$(tput ssupm)
+# export LESS_TERMCAP_ZW=$(tput rsupm)
 
 if (( $+commands[grc] )); then
 
@@ -129,4 +121,3 @@ fi
 
 # set color for autosuggestions
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=010'
-

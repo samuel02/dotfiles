@@ -5,9 +5,10 @@ alias tmux="tmux -2"
 alias h="clear && cd ~"
 alias ppath='echo $PATH | tr -s ":" "\n"'
 alias dc="docker-compose"
+alias vim="nvim"
 
 # fasd
-alias z='fasd_cd -d' # cd, same functionality as j in autojump
+alias z='fasd_cd -d'
 
 # colors
 if [[ "$(uname)" = "Darwin" ]]; then
@@ -28,4 +29,3 @@ alias gd='git diff'
 
 # kubernetes
 alias k=kubectl
-# complete -F __start_kubectl k

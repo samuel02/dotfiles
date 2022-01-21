@@ -29,6 +29,12 @@ if test ! "$(command -v fzf)"; then
   ~/.fzf/install
 fi
 
+# Install TPM
+if [ ! -d "$HOME"/.tmux/plugins/tpm ]; then
+  echo "› installing TPM"
+  git clone https://github.com/tmux-plugins/tpm "$HOME"/.tmux/plugins/tpm
+fi
+
 
 # Set shell
 # If this user's login shell is not already "zsh", attempt to switch.
