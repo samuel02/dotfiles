@@ -50,7 +50,6 @@ call plug#begin(expand('~/.vim/bundle'))
   Plug 'AndrewRadev/splitjoin.vim'
   Plug 'AndrewRadev/switch.vim'
   Plug 'airblade/vim-gitgutter'
-  Plug 'chentau/marks.nvim'
   Plug 'christoomey/vim-tmux-navigator'
   Plug 'dense-analysis/ale'
   Plug 'folke/which-key.nvim'
@@ -242,6 +241,9 @@ let g:switch_mapping = '-'
 
 "" tagbar
 let g:tagbar_sort = 0
+
+"" coq
+let g:coq_settings = { 'keymap.jump_to_mark' : '' }
 
 augroup vimrc_help
   autocmd!
