@@ -2,7 +2,6 @@
 #   - Bypass fuzzy finder if there's only one match (--select-1)
 #   - Exit if there's no match (--exit-0)
 fe() {
-  echo "hello"
   local files
   IFS=$'\n' files=($(fzf --query="$1" --height=10 --multi --select-1 --exit-0))
   [[ -n "$files" ]] && ${EDITOR:-vim} "${files[@]}"

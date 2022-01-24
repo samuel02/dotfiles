@@ -99,8 +99,8 @@ call plug#end()
 
 
 set t_Co=256
-colorscheme onehalfdark
-set background=dark
+colorscheme onehalflight
+set background=light
 
 if exists('+termguicolors')
   let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
@@ -134,7 +134,7 @@ map g* <Plug>(incsearch-nohl-g*)
 map g# <Plug>(incsearch-nohl-g#)
 
 "" airline
-let g:airline_theme = 'onehalfdark'
+let g:airline_theme = 'onehalflight'
 let g:airline#extensions#ale#enabled = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#whitespace#enabled = 1
